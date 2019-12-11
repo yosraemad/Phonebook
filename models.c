@@ -34,3 +34,13 @@ void printContact(Contact c){
     printf("Phone Number = %s\n", c.phoneNum);
     printf("Birthday = %s - %s - %s\n", c.dateOfBirth.day,c.dateOfBirth.month,c.dateOfBirth.year);
 }
+
+void printContacts(Contact* contacts, int length)
+{
+    int i;
+    for (i = 0; i < length; i++) {
+        printf("%d.\n", i +1);
+        printContact(contacts[i]);
+        printf("\n");
+    }
+}

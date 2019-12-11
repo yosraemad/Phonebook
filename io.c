@@ -56,21 +56,13 @@ void load(){
         Count++;
         rewind(f);
     }
-    printf("The total number of contacts: %d\n\n", Count);
 
     int i = 0;
     while(fgets(str, sizeof(str), f) != NULL)
     {
         Contacts[i] = saveToStruct(str);
-        printContact(Contacts[i]);
-        printf("\n");
         i++;
     }
 
-
     fclose(f);
-
-    printf("Press any key to continue ..");
-    //getch();
-
 }

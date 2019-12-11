@@ -11,17 +11,22 @@ void showMenu();
 
 void main() {
 
+    char lastName[10];
 
+    load();
     int choice;
     while(1) {
         showMenu();
         scanf("%d", &choice);
         switch (choice) {
             case 1:
-                load();
+                printContacts(Contacts, Count);
                 break;
             case 2:
                 printf("Please enter the contact's last name: \n");
+                scanf("%s", lastName);
+                int num;
+                searchContacts(lastName, &num);
                 break;
             case 3:
                 add_new_contact();
@@ -30,7 +35,9 @@ void main() {
                 printf("Deleting..\n");
                 break;
             case 5:
-                printf("Modifying..\n");
+                printf("Please enter the contact's last name: \n");
+                scanf("%s", lastName);
+                modify_contact(lastName);
                 break;
             case 6:
                 printf("Sorting..\n");

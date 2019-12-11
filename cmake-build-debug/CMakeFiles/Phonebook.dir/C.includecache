@@ -6,19 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/home/heromora/CLionProjects/Phonebook/io.c
+/home/heromora/CLionProjects/Phonebook/io.h
+models.h
+/home/heromora/CLionProjects/Phonebook/models.h
+
+/home/heromora/CLionProjects/Phonebook/main.c
 stdio.h
--
-string.h
 -
 stdlib.h
 -
 io.h
 /home/heromora/CLionProjects/Phonebook/io.h
-
-/home/heromora/CLionProjects/Phonebook/io.h
-models.h
-/home/heromora/CLionProjects/Phonebook/models.h
+useroptions.h
+/home/heromora/CLionProjects/Phonebook/useroptions.h
 
 /home/heromora/CLionProjects/Phonebook/models.h
+
+/home/heromora/CLionProjects/Phonebook/useroptions.h
 

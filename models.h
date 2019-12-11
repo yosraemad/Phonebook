@@ -19,6 +19,7 @@ extern Contact Contacts[];
 
 DateOfBirth *BirthdayConstructor(char* s);
 void printContact(Contact c);
+void printContacts(Contact* contacts, int length);
 
 #ifndef PHONEBOOK_MODELS_H
 #define PHONEBOOK_MODELS_H
