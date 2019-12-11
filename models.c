@@ -4,21 +4,21 @@
 
 #include "models.h"
 
-DateOfBirth BirthdayConstructor(char* s)
+DateOfBirth *BirthdayConstructor(char* s)
 {
-    DateOfBirth birthday;
+    DateOfBirth *birthday = (DateOfBirth*)malloc(sizeof(DateOfBirth));
     int i = 0;
     char *p = strtok(s,"/'\'- ");
     while(p)
     {
         if (i == 0) {
-            strcpy(birthday.day, p);
+            strcpy(birthday->day, p);
         }
         else if (i == 1) {
-            strcpy(birthday.month, p);
+            strcpy(birthday->month, p);
         }
         else if (i == 2) {
-            strcpy(birthday.year, p);
+            strcpy(birthday->year, p);
         }
         p = strtok(NULL, "/'\'- ");
         i++;

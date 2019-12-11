@@ -25,7 +25,7 @@ Contact saveToStruct(char* str){
             continue;
         }
         else if(flag == 5) {
-            res.dateOfBirth  = BirthdayConstructor(token);
+            res.dateOfBirth  = *BirthdayConstructor(token);
         }
         flag++;
         token = strtok( NULL, "," );
@@ -54,6 +54,7 @@ void load(){
         char dummy[] = "Steven,Thomas,26 Elhoreya Street,sthomas@gmail.com,03-4876321,10-06-1995\n";
         fputs(dummy, f);
         Count++;
+        rewind(f);
     }
     printf("The total number of contacts: %d\n\n", Count);
 

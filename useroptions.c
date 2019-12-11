@@ -22,8 +22,8 @@ void add_new_contact()
     printf("Please enter the contact birthday:\n");
     scanf("%s", birthday);
 
-    DateOfBirth bd = BirthdayConstructor(birthday);
-    contact->dateOfBirth = bd;
+    DateOfBirth *bd = BirthdayConstructor(birthday);
+    contact->dateOfBirth = *bd;
     Contacts[Count] = *contact;
     Count++;
 }

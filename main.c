@@ -21,7 +21,7 @@ void main() {
                 load();
                 break;
             case 2:
-                printf("Searching..\n");
+                printf("Please enter the contact's last name: \n");
                 break;
             case 3:
                 add_new_contact();
