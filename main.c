@@ -11,15 +11,19 @@ void showMenu();
 
 void main() {
 
+    char fileName[30] = "contacts.txt";
     char lastName[10];
 
-    load();
+    load(fileName);
     int choice;
     while(1) {
         showMenu();
         scanf("%d", &choice);
         switch (choice) {
             case 1:
+                printf("Please the enter the file name with extension ex'contacts.txt':\n");
+                scanf("%s", fileName);
+                load(fileName);
                 printContacts(Contacts, Count);
                 break;
             case 2:
@@ -57,6 +61,7 @@ void main() {
 
 
 void showMenu(){
+    printf("Welcome to the Phonebook!!\n");
     printf("Please choose one of the following commands\n");
     printf("1 --> Load\n");
     printf("2 --> Search\n");

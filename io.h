@@ -1,6 +1,6 @@
 #include "models.h"
 
-void load();
+void load(char* fileName);
 void saveFile();
 void getNumOfLines(FILE * f);
 Contact saveToStruct(char* str);
