@@ -92,3 +92,76 @@ void modify_contact(char* lastName)
     printf("Contact Edited Successfully.\n");
     printContact(*selectedContact);
 }
+
+void sortLastName ()
+{
+    int i,pass,sorted=0;
+    Contact temp;
+    for(pass=1;pass<Count&&!sorted;pass++) {
+        sorted = 1;
+        for (i = 0; i < Count - pass; i++) {
+            int n = strcasecmp(Contacts[i].lastName, Contacts[i + 1].lastName);
+            if (n > 0) {
+                temp = Contacts[i];
+                Contacts[i] = Contacts[i + 1];
+                Contacts[i + 1] = temp;
+                sorted = 0;
+            }
+        }
+    }
+    for(i= 0;i<Count; i++){
+        printContact(Contacts[i]);
+        printf("\n");
+    }
+}
+void sortDateOfBirth() {
+    int i, pass, sorted = 0;
+    Contact temp;
+    for (pass = 1; pass < Count && !sorted; pass++) {
+        sorted = 1;
+        for (i = 0; i < Count - pass; i++) {
+            int n = strcmp(Contacts[i].dateOfBirth.year, Contacts[i+1].dateOfBirth.year);
+            if (n > 0) {
+                temp = Contacts[i];
+                Contacts[i] = Contacts[i + 1];
+                Contacts[i + 1] = temp;
+                sorted = 0;
+            } else if (n == 0) {
+                sorted =1;
+                n = strcmp(Contacts[i].dateOfBirth.month, Contacts[i + 1].dateOfBirth.month);
+                if (n > 0) {
+                    temp = Contacts[i];
+                    Contacts[i] = Contacts[i + 1];
+                    Contacts[i + 1] = temp;
+                    sorted = 0;
+                } else if (n == 0) {
+                    sorted =1 ;
+                    n = strcmp(Contacts[i].dateOfBirth.day, Contacts[i + 1].dateOfBirth.day);
+                    if (n > 0) {
+                        temp = Contacts[i];
+                        Contacts[i] = Contacts[i + 1];
+                        Contacts[i + 1] = temp;
+                        sorted = 0;
+                    }
+                }
+            }
+        }
+    }
+    for(i= 0;i<Count; i++){
+        printContact(Contacts[i]);
+        printf("\n");
+    }
+}
+void sort()
+{
+    char sortType;
+    printf("would you like to sort contacts according to (L)ast name or (D)ate of birth?\n");
+    scanf(" %c",&sortType);
+    if(sortType == 'L')
+    {
+        sortLastName();
+    }
+    else if(sortType == 'D'){
+        sortDateOfBirth();
+    }
+}
