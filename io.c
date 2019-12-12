@@ -70,3 +70,13 @@ void load(char* fileName){
 
     fclose(f);
 }
+
+void saveFile(){
+    char fileName[] = "contacts.txt";
+    FILE *fp = fopen(fileName,"w");
+    int i;
+    for(i = 0; i<Count; i++){
+        fprintf(fp,"%s,%s,%s-%s-%s,%s,%s,%s\n",Contacts[i].lastName,Contacts[i].firstName,Contacts[i].dateOfBirth.day,Contacts[i].dateOfBirth.month,Contacts[i].dateOfBirth.year,Contacts[i].stName,Contacts[i].email,Contacts[i].phoneNum);
+    }
+    fclose(fp);
+}
