@@ -6,30 +6,9 @@
 
 Contact saveToStruct(char* str){
     Contact res ;
-    int flag = 0;
-    char *token = strtok(str, ",");
-    while( token != NULL)
-    {
-        if (flag == 0)
-            strcpy(res.lastName, token);
-        else if (flag == 1)
-            strcpy(res.firstName, token);
-        else if(flag == 2)
-            strcpy(res.stName,token);
-        else if(flag == 3)
-            strcpy(res.email,token);
-        else if(flag == 4) {
-            strcpy(res.phoneNum, token);
-            token = strtok(NULL, "\n");
-            flag++;
-            continue;
-        }
-        else if(flag == 5) {
-            res.dateOfBirth  = *BirthdayConstructor(token);
-        }
-        flag++;
-        token = strtok( NULL, "," );
-    }
+    char birthday[11];
+    sscanf(str,"%[^,],%[^,],%[^,],%[^,],%[^,],%s\n",res.lastName,res.firstName,birthday,res.stName,res.email,res.phoneNum);
+    res.dateOfBirth = *BirthdayConstructor(birthday);
     return res;
 }
 
@@ -42,15 +21,14 @@ void getNumOfLines(FILE * f){
     rewind(f);
 }
 
-void load(){
-    //system("clear");
-
+void load(char* fileName){
     char str[512];
-    char fileName[] = "contacts.txt";
+    Count = 0;
     FILE *f = fopen(fileName,"a+");
     getNumOfLines(f);
 
     if(!Count) {
+        printf("File not found we've created a new file for you.\n\n");
         char dummy[] = "Steven,Thomas,26 Elhoreya Street,sthomas@gmail.com,03-4876321,10-06-1995\n";
         fputs(dummy, f);
         Count++;
@@ -67,12 +45,13 @@ void load(){
     fclose(f);
 }
 
-void saveFile(){
-    char fileName[] = "contacts.txt";
+void saveFile(char* fileName){
     FILE *fp = fopen(fileName,"w");
     int i;
     for(i = 0; i<Count; i++){
         fprintf(fp,"%s,%s,%s-%s-%s,%s,%s,%s\n",Contacts[i].lastName,Contacts[i].firstName,Contacts[i].dateOfBirth.day,Contacts[i].dateOfBirth.month,Contacts[i].dateOfBirth.year,Contacts[i].stName,Contacts[i].email,Contacts[i].phoneNum);
     }
     fclose(fp);
+
+    printf("Changes are saved to the file successfully!\n");
 }
