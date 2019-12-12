@@ -1,4 +1,4 @@
-Steven,Thomas,26 Elhoreya Street,sthomas@gmail.com,03-4876321,10-06-1995
-Alaa,Omar,227 ElFatth Street,omar.skillful@gmail.com,03-5746888,29-09-2000
-Alaa,Ahmed,308 Flowers Street,ahmed@gmail.com,03-5217218,04-03-2001
-Muhammed,Fady,82 Abo Qeer Street,fady@example.com,03-9764231,08-02-2004
+Alaa,Omar,29-09-2000,227 FLowers Street,omar@gmail.com,03-5566889
+Fares,Ahmed,18-12-1993,28 Abo Qeer,fares@gmail.com,03-4728201
+Kotby,Menna,03-06-2001,227 example streer,menna@example.com,03-5454632
+Muhammed,Amr,08-11-1999,117 bing street,amr@example.com,03-7896541
