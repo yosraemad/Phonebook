@@ -6,35 +6,9 @@
 
 Contact saveToStruct(char* str){
     Contact res ;
-
-
-
-//    int flag = 0;
-//    char *token = strtok(str, ",");
-//    while( token != NULL)
-//    {
-//        if (flag == 0)
-//            strcpy(res.lastName, token);
-//        else if (flag == 1)
-//            strcpy(res.firstName, token);
-//        else if(flag == 5) {
-//            res.dateOfBirth  = *BirthdayConstructor(token);
-//        }
-//        else if(flag == 2)
-//            strcpy(res.stName,token);
-//        else if(flag == 3)
-//            strcpy(res.email,token);
-//        else if(flag == 4) {
-//            strcpy(res.phoneNum, token);
-//            token = strtok(NULL, "\n");
-//            flag++;
-//            continue;
-//        }
-//
-//        flag++;
-//        token = strtok( NULL, "," );
-//    }
-    sscanf(str,"%[^,],%[^,],%[^-]-%[^-]-%[^,],%[^,],%[^,],%s\n",res.lastName,res.firstName,res.dateOfBirth.day,res.dateOfBirth.month,res.dateOfBirth.year,res.stName,res.email,res.phoneNum);
+    char birthday[11];
+    sscanf(str,"%[^,],%[^,],%[^,],%[^,],%[^,],%s\n",res.lastName,res.firstName,birthday,res.stName,res.email,res.phoneNum);
+    res.dateOfBirth = *BirthdayConstructor(birthday);
     return res;
 }
 
@@ -71,12 +45,13 @@ void load(char* fileName){
     fclose(f);
 }
 
-void saveFile(){
-    char fileName[] = "contacts.txt";
+void saveFile(char* fileName){
     FILE *fp = fopen(fileName,"w");
     int i;
     for(i = 0; i<Count; i++){
         fprintf(fp,"%s,%s,%s-%s-%s,%s,%s,%s\n",Contacts[i].lastName,Contacts[i].firstName,Contacts[i].dateOfBirth.day,Contacts[i].dateOfBirth.month,Contacts[i].dateOfBirth.year,Contacts[i].stName,Contacts[i].email,Contacts[i].phoneNum);
     }
     fclose(fp);
+
+    printf("Changes are saved to the file successfully!\n");
 }

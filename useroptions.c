@@ -27,6 +27,10 @@ void add_new_contact()
     contact->dateOfBirth = *bd;
     Contacts[Count] = *contact;
     Count++;
+
+    printf("Contact added Successfully!\n");
+    printContact(*contact);
+    printf("\n");
 }
 
 Contact** searchContacts(char* lastName, int* number)

@@ -47,9 +47,12 @@ void main() {
                 sort();
                 break;
             case 7:
-                saveFile();
+                saveFile(fileName);
                 break;
             case 8:
+                printContacts(Contacts, Count);
+                break;
+            case 9:
                 exit(0);
             default:
                 printf("Command not recognized\n");
@@ -70,5 +73,6 @@ void showMenu(){
     printf("5 --> Modify\n");
     printf("6 --> Sort\n");
     printf("7 --> Save\n");
-    printf("8 --> Quit\n");
+    printf("8 --> Print\n");
+    printf("9 --> Quit\n");
 }
