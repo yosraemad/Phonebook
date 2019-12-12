@@ -5,6 +5,9 @@
 void add_new_contact();
 void modify_contact(char* lastName);
 void delete_contact();
+void sort();
+void sortDateOfBirth();
+void sortLastName();
 Contact** searchContacts(char* lastName, int* number);
 
 #ifndef PHONEBOOK_USEROPTIONS_H

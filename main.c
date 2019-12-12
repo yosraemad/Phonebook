@@ -40,10 +40,10 @@ void main() {
                 modify_contact(lastName);
                 break;
             case 6:
-                printf("Sorting..\n");
+                sort();
                 break;
             case 7:
-                printf("Saving..\n");
+                saveFile();
                 break;
             case 8:
                 exit(0);
