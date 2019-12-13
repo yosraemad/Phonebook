@@ -3,7 +3,7 @@
 //
 
 void add_new_contact();
-void modify_contact(char* lastName);
+void modify_contact();
 void delete_contact();
 void sort();
 void sortDateOfBirth();
