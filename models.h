@@ -15,7 +15,7 @@ typedef struct {
 } Contact;
 
 extern int Count;
-extern Contact Contacts[];
+extern Contact *Contacts;
 
 DateOfBirth *BirthdayConstructor(char* s);
 void printContact(Contact c);

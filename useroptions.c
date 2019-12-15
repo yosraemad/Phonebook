@@ -7,29 +7,30 @@
 void add_new_contact()
 {
     // VALIDATIONS TO BE DONE
+    Count++;
+    Contacts = (Contact*)realloc(Contacts,Count* sizeof(*Contacts));
 
     char birthday[11];
-    Contact *contact = (Contact*)malloc(sizeof(Contact));
+    Contact contact;
     printf("Please enter the contact first name:\n");
-    scanf("%s", contact->firstName);
+    scanf("%s", contact.firstName);
     printf("Please enter the contact last name:\n");
-    scanf("%s", contact->lastName);
+    scanf("%s", contact.lastName);
     printf("Please enter the contact number:\n");
-    scanf("%s", contact->phoneNum);
+    scanf("%s", contact.phoneNum);
     printf("Please enter the contact email:\n");
-    scanf("%s", contact->email);
+    scanf("%s", contact.email);
     printf("Please enter the contact address:\n");
-    scanf (" %[^\n]s", contact->stName);
+    scanf (" %[^\n]s", contact.stName);
     printf("Please enter the contact birthday:\n");
     scanf("%s", birthday);
 
     DateOfBirth *bd = BirthdayConstructor(birthday);
-    contact->dateOfBirth = *bd;
-    Contacts[Count] = *contact;
-    Count++;
+    contact.dateOfBirth = *bd;
+    Contacts[Count-1] = contact;
 
-    printf("Contact added Successfully!\n");
-    printContact(*contact);
+    printf("Contact added Successfully!\n\n");
+    printContact(contact);
     printf("\n");
 }
 

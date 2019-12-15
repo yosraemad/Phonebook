@@ -5,7 +5,7 @@
 #include "useroptions.h"
 
 int Count = 0;
-Contact Contacts[100];
+Contact *Contacts ;
 
 void showMenu();
 
