@@ -57,44 +57,86 @@ Contact** searchContacts(char* lastName, int* number)
     return contacts;
 }
 
-void modify_contact(char* lastName)
+void delete_contact()
+{
+    char firstName[15];
+    char lastName[15];
+    int i,j, flag = 0;
+    printf("Please enter the first and last name of the contact ex'Ahmed Muhammed':\n");
+    scanf("%s %s", firstName, lastName);
+    for (i = 0; i < Count; i++) {
+        if (!strcasecmp(Contacts[i].firstName, firstName))
+            if (!strcasecmp(Contacts[i].lastName, lastName)) {
+                printContact(Contacts[i]);
+                flag = 1;
+                break;
+            }
+    }
+
+    if (!flag) {
+        printf("No contact with these first name and last name found\n");
+        return;
+    }
+
+
+    for(j = i; j < Count; j++)
+        Contacts [j]=Contacts[j+1] ;
+
+    printf("Contact deleted successfully!\n");
+    Count--;
+}
+
+void modify_contact()
 {
     char c;
-    int s, num;
+    int num,flag = 0, s = 0;
     char birthday[10];
+    char lastName[15];
+    printf("Please enter the contact's last name: \n");
+    scanf(" %s", lastName);
     Contact** contacts = searchContacts(lastName, &num);
     printContacts(*contacts, num);
     printf("Please enter the number of the contact you want to modify:\n");
     scanf("%d",&s);
+    while(s > num || s <= 0) {
+        printf("Please enter a correct number:\n ");
+        scanf(" %d",&s);
+    }
     Contact *selectedContact = contacts[s-1];
     printContact(*selectedContact);
     printf("Please enter the property that you would like to edit\n");
     printf("(L)ast name, (F)irst name,(S)treet name, (E)mail, (P)hone, (D)ate of birth:\n");
-    scanf(" %c", &c);
-    printf("Please enter the new value:\n");
-    switch (c)
-    {
-        case('L'):
-        scanf("%s", selectedContact->lastName);
-            break;
-        case('F'):
-            scanf("%s", selectedContact->firstName);
-            break;
-        case('S'):
-            scanf("%s", selectedContact->stName);
-            break;
-        case('E'):
-            scanf("%s", selectedContact->email);
-            break;
-        case('P'):
-            scanf("%s", selectedContact->phoneNum);
-            break;
-        case('D'):
-            scanf("%s", birthday);
-            selectedContact->dateOfBirth = *BirthdayConstructor(birthday);
-            break;
+    while (!flag) {
+        flag = 1;
+        scanf(" %c", &c);
+        printf("Please enter the new value:\n");
+        switch (c) {
+            case ('L'):
+                scanf("%s", selectedContact->lastName);
+                break;
+            case ('F'):
+                scanf("%s", selectedContact->firstName);
+                break;
+            case ('S'):
+                scanf("%s", selectedContact->stName);
+                break;
+            case ('E'):
+                scanf("%s", selectedContact->email);
+                break;
+            case ('P'):
+                scanf("%s", selectedContact->phoneNum);
+                break;
+            case ('D'):
+                scanf("%s", birthday);
+                selectedContact->dateOfBirth = *BirthdayConstructor(birthday);
+                break;
+            default:
+                printf("Property not recognized, make sure you using a capital letter\n");
+                flag = 0;
+                break;
+        }
     }
-    printf("Contact Edited Successfully.\n");
+    printf("Contact Edited Successfully.\n\n");
     printContact(*selectedContact);
 }
 
@@ -114,10 +156,8 @@ void sortLastName ()
             }
         }
     }
-    for(i= 0;i<Count; i++){
-        printContact(Contacts[i]);
-        printf("\n");
-    }
+
+    printContacts(Contacts, Count);
 }
 void sortDateOfBirth() {
     int i, pass, sorted = 0;
@@ -152,15 +192,12 @@ void sortDateOfBirth() {
             }
         }
     }
-    for(i= 0;i<Count; i++){
-        printContact(Contacts[i]);
-        printf("\n");
-    }
+    printContacts(Contacts, Count);
 }
 void sort()
 {
     char sortType;
-    printf("would you like to sort contacts according to (L)ast name or (D)ate of birth?\n");
+    printf("Would you like to sort contacts according to (L)ast name or (D)ate of birth?\n");
     scanf(" %c",&sortType);
     if(sortType == 'L')
     {
@@ -168,5 +205,7 @@ void sort()
     }
     else if(sortType == 'D'){
         sortDateOfBirth();
+    } else {
+        printf("Command not recognized please try again!\n\n");
     }
 }
