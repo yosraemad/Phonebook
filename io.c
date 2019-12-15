@@ -34,6 +34,7 @@ void load(char* fileName){
         Count++;
         rewind(f);
     }
+    Contacts = (Contact*)malloc(Count* sizeof(*Contacts));
 
     int i = 0;
     while(fgets(str, sizeof(str), f) != NULL)
