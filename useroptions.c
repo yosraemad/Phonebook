@@ -16,13 +16,13 @@ void add_new_contact()
     scanf("%s", contact.firstName);
     printf("Please enter the contact last name:\n");
     scanf("%s", contact.lastName);
-    printf("Please enter the contact number:\n");
+    printf("Please enter the contact number ex'03-4320121':\n");
     scanf("%s", contact.phoneNum);
-    printf("Please enter the contact email:\n");
+    printf("Please enter the contact email ex'steven@gmail.com':\n");
     scanf("%s", contact.email);
     printf("Please enter the contact address:\n");
     scanf (" %[^\n]s", contact.stName);
-    printf("Please enter the contact birthday:\n");
+    printf("Please enter the contact birthday ex'13-03-2000':\n");
     scanf("%s", birthday);
 
     DateOfBirth *bd = BirthdayConstructor(birthday);

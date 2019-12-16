@@ -10,8 +10,8 @@ Contact *Contacts ;
 void showMenu();
 
 void main() {
-    //  BUG TO BE FIXED OF ENTERTING STRING
-    char fileName[30] = "contacts.txt";
+    //  TODO BUG TO BE FIXED OF ENTERING STRING
+    char fileName[30] = "contacts";
     char lastName[15];
 
     load(fileName);
@@ -21,7 +21,7 @@ void main() {
         scanf("%d", &choice);
         switch (choice) {
             case 1:
-                printf("Please the enter the file name with extension ex'contacts.txt':\n");
+                printf("Please the enter the file name:\n");
                 scanf("%s", fileName);
                 load(fileName);
                 printContacts(Contacts, Count);

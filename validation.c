@@ -9,7 +9,7 @@ char* v_number(char* phone)
     int n = strlen(phone);
 
     if (n != 9)
-        strcpy(error, "Please use the correct form for numbers ex: 03483999");
+        strcpy(error, "Please use the correct form for numbers ex: 03-483999");
     else {
 
         unsigned int num;
