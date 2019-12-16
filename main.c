@@ -10,9 +10,9 @@ Contact *Contacts ;
 void showMenu();
 
 void main() {
-
+    //  BUG TO BE FIXED OF ENTERTING STRING
     char fileName[30] = "contacts.txt";
-    char lastName[10];
+    char lastName[15];
 
     load(fileName);
     int choice;
@@ -29,19 +29,17 @@ void main() {
             case 2:
                 printf("Please enter the contact's last name: \n");
                 scanf("%s", lastName);
-                int num;
+                int num = 0;
                 searchContacts(lastName, &num);
                 break;
             case 3:
                 add_new_contact();
                 break;
             case 4:
-                printf("Deleting..\n");
+                delete_contact();
                 break;
             case 5:
-                printf("Please enter the contact's last name: \n");
-                scanf("%s", lastName);
-                modify_contact(lastName);
+                modify_contact();
                 break;
             case 6:
                 sort();
