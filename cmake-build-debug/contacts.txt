@@ -1,4 +1,3 @@
-Alaa,Omar,29-09-2000,227 FLowers Street,omar@gmail.com,03-5566889
-Fares,Ahmed,18-12-1993,28 Abo Qeer,fares@gmail.com,03-4728201
-Kotby,Menna,03-06-2001,227 example streer,menna@example.com,03-5454632
-Muhammed,Amr,08-11-1999,117 bing street,amr@example.com,03-7896541
+Emad,Yosra,02-08-2000,Zaki Street,yosra@gmail.com,03-4295334
+Alaa,Omae,29-12-2000,Horreya Street,omar@gmail.com,03-7653991
+Emad,Yosra,02-08-2000,Zaki Street,yosra@gmail.com,03-4295334
