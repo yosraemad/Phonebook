@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "E:/clion projects/PhonebookFork/main.c" "E:/clion projects/PhonebookFork/cmake-build-debug/CMakeFiles/Phonebook.dir/main.c.obj"
   "E:/clion projects/PhonebookFork/models.c" "E:/clion projects/PhonebookFork/cmake-build-debug/CMakeFiles/Phonebook.dir/models.c.obj"
   "E:/clion projects/PhonebookFork/useroptions.c" "E:/clion projects/PhonebookFork/cmake-build-debug/CMakeFiles/Phonebook.dir/useroptions.c.obj"
+  "E:/clion projects/PhonebookFork/validation.c" "E:/clion projects/PhonebookFork/cmake-build-debug/CMakeFiles/Phonebook.dir/validation.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

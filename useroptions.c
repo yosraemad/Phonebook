@@ -82,8 +82,10 @@ void delete_contact()
     for(j = i; j < Count; j++)
         Contacts [j]=Contacts[j+1] ;
 
-    printf("Contact deleted successfully!\n");
     Count--;
+    Contacts = (Contact*)realloc(Contacts,Count* sizeof(*Contacts));
+
+    printf("Contact deleted successfully!\n");
 }
 
 void modify_contact()

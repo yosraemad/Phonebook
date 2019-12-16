@@ -95,6 +95,9 @@
 		<Unit filename="E:/clion projects/PhonebookFork/useroptions.h">
 			<Option target="Phonebook"/>
 		</Unit>
+		<Unit filename="E:/clion projects/PhonebookFork/validation.c">
+			<Option target="Phonebook"/>
+		</Unit>
 		<Unit filename="E:/clion projects/PhonebookFork/validation.h">
 			<Option target="Phonebook"/>
 		</Unit>

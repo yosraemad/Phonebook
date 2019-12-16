@@ -1,3 +1,2 @@
 Emad,Yosra,02-08-2000,Zaki Street,yosra@gmail.com,03-4295334
-Alaa,Omae,29-12-2000,Horreya Street,omar@gmail.com,03-7653991
 Emad,Yosra,02-08-2000,Zaki Street,yosra@gmail.com,03-4295334

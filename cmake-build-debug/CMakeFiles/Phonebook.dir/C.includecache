@@ -6,15 +6,19 @@
 
 #IncludeRegexTransform: 
 
-E:/clion projects/PhonebookFork/models.h
-
-E:/clion projects/PhonebookFork/useroptions.c
+E:/clion projects/PhonebookFork/io.c
 stdio.h
--
-stdlib.h
 -
 string.h
 -
+stdlib.h
+-
+io.h
+E:/clion projects/PhonebookFork/io.h
+
+E:/clion projects/PhonebookFork/io.h
 models.h
+E:/clion projects/PhonebookFork/models.h
+
 E:/clion projects/PhonebookFork/models.h
 

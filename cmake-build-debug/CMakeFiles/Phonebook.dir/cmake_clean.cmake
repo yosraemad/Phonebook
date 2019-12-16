@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Phonebook.dir/main.c.obj"
   "CMakeFiles/Phonebook.dir/models.c.obj"
   "CMakeFiles/Phonebook.dir/useroptions.c.obj"
+  "CMakeFiles/Phonebook.dir/validation.c.obj"
   "Phonebook.exe"
   "Phonebook.exe.manifest"
   "Phonebook.pdb"

@@ -230,6 +230,33 @@ useroptions.c.s:
 	$(MAKE) -f CMakeFiles\Phonebook.dir\build.make CMakeFiles/Phonebook.dir/useroptions.c.s
 .PHONY : useroptions.c.s
 
+validation.obj: validation.c.obj
+
+.PHONY : validation.obj
+
+# target to build an object file
+validation.c.obj:
+	$(MAKE) -f CMakeFiles\Phonebook.dir\build.make CMakeFiles/Phonebook.dir/validation.c.obj
+.PHONY : validation.c.obj
+
+validation.i: validation.c.i
+
+.PHONY : validation.i
+
+# target to preprocess a source file
+validation.c.i:
+	$(MAKE) -f CMakeFiles\Phonebook.dir\build.make CMakeFiles/Phonebook.dir/validation.c.i
+.PHONY : validation.c.i
+
+validation.s: validation.c.s
+
+.PHONY : validation.s
+
+# target to generate assembly for a file
+validation.c.s:
+	$(MAKE) -f CMakeFiles\Phonebook.dir\build.make CMakeFiles/Phonebook.dir/validation.c.s
+.PHONY : validation.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -251,6 +278,9 @@ help:
 	@echo ... useroptions.obj
 	@echo ... useroptions.i
 	@echo ... useroptions.s
+	@echo ... validation.obj
+	@echo ... validation.i
+	@echo ... validation.s
 .PHONY : help
 
 
