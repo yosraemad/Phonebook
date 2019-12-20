@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "io.h"
 #include "useroptions.h"
+#include "validation.h"
 
 int Count = 0;
 Contact *Contacts ;
@@ -10,15 +12,17 @@ Contact *Contacts ;
 void showMenu();
 
 void main() {
-    char fileName[30] = "contacts.txt";
+    //  TODO BUG TO BE FIXED OF ENTERING STRING
+    char fileName[30] = "contacts";
     char lastName[15];
     int flag = 1;
+
     load(fileName);
     char help[2];
-    int choice;
     char *end;
     char c;
-    while (1) {
+    int choice;
+    while(1) {
         showMenu();
         fgets(help, 10000, stdin);
         help[1] = 0;
@@ -29,16 +33,20 @@ void main() {
             help[1] = 0;
             choice = strtol(help, &end, 10);
         }
+
         switch (choice) {
             case 1:
-                printf("Please the enter the file name with extension ex'contacts.txt':\n");
+                printf("Please the enter the file name:\n");
                 scanf("%s", fileName);
                 load(fileName);
                 printContacts(Contacts, Count);
                 break;
             case 2:
                 printf("Please enter the contact's last name: \n");
-                scanf("%s", lastName);
+                strcpy(lastName, readInput(lastName, sizeof(lastName)));
+                strcpy(lastName, v_name(lastName));
+                //scanf("%s", lastName);
+
                 int num = 0;
                 searchContacts(lastName, &num);
                 break;
@@ -60,6 +68,7 @@ void main() {
             case 8:
                 printContacts(Contacts, Count);
                 break;
+
             case 9:
                 printf("Make sure you've saved your changes before quitting or all changes will be discarded\n");
                 printf("Please enter the number of the command:\n");
@@ -83,16 +92,15 @@ void main() {
                             flag = 1;
                             break;
                     }
-
-                    default:
-                        printf("Command not recognized\n");
-
                 }
 
+            default:
+                printf("Command not recognized\n");
         }
     }
-
 }
+
+
 void showMenu(){
     printf("Welcome to the Phonebook!!\n");
     printf("Please choose one of the following commands\n");

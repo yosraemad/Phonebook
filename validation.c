@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "validation.h"
+#include "models.h"
 
 char* v_number(char* phone)
 {
@@ -13,9 +13,9 @@ char* v_number(char* phone)
     TO[7] = 0;
     int num = atoi(TO);
     if(phone[2]!='-'||!num){
-            strcpy(error,"Please enter a valid number ex: 03-1234567\n");
-            return error;
-        }
+        strcpy(error,"Please enter a valid number ex: 03-1234567\n");
+        return error;
+    }
     strncpy(TO,phone,2);
     TO[2] = 0;
     num = atoi(TO);
@@ -29,9 +29,8 @@ char* v_number(char* phone)
     }
     free(TO);
     return error;
-
-
 }
+
 char* v_email(char* email)
 {
     char* error = malloc(sizeof(char) * 65);
@@ -77,14 +76,16 @@ char* v_email(char* email)
     }
     return error;
 }
+
 char* v_name(char* name)
 {
     int i, flag = 1;
     int length = strlen(name);
     while(flag) {
         flag = 0;
-        for (i = 0; i < length ; ++i) {
+        for (i = 0; i < length; ++i) {
             char c = name[i];
+            if (!name[i]) break;
             if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) {
                 flag = 1;
                 break;
@@ -95,14 +96,14 @@ char* v_name(char* name)
         {
             printf("Make sure you are entering letters from the alphabet.\n");
             printf("Please re-enter the name:\n");
-            scanf("%14s", name);
-            getchar();
+            strcpy(name, readInput(name, 14));
         }
         else {
             return name;
         }
     }
 }
+
 char* v_dob(char* dob)
 {
     int day, month,year;
