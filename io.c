@@ -22,8 +22,6 @@ void getNumOfLines(FILE * f){
 }
 
 void load(char* fileName){
-    // TODO Count the last contact without \n in the end if added manually
-    strcat(fileName,".txt");
     char str[512];
     Count = 0;
     FILE *f = fopen(fileName,"a+");
