@@ -2,6 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include "models.h"
+
 char* v_number(char* phone)
 {
     char* error = malloc(sizeof(char) * 65);
@@ -32,6 +34,7 @@ char* v_name(char* name)
         flag = 0;
         for (i = 0; i < length; ++i) {
             char c = name[i];
+            if (!name[i]) break;
             if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) {
                 flag = 1;
                 break;
@@ -42,8 +45,7 @@ char* v_name(char* name)
         {
             printf("Make sure you are entering letters from the alphabet.\n");
             printf("Please re-enter the name:\n");
-            scanf("%14s", name);
-            getchar();
+            strcpy(name, readInput(name, 14));
         }
         else {
             return name;
