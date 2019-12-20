@@ -3,12 +3,13 @@
 #include <string.h>
 
 #include "models.h"
+#include "validation.h"
 
 DateOfBirth *BirthdayConstructor(char* s)
 {
     DateOfBirth *birthday = (DateOfBirth*)malloc(sizeof(DateOfBirth));
     int i = 0;
-    char *p = strtok(s,"/'\'- ");
+    char *p = strtok(v_dob(s),"/'\'- ");
     while(p)
     {
         if (i == 0) {
@@ -38,7 +39,7 @@ void printContact(Contact c){
 
 void printContacts(Contact* contacts, int length)
 {
-    int i;
+    int i = 0;
     for (i = 0; i < length; i++) {
         printf("%d.\n", i +1);
         printContact(contacts[i]);

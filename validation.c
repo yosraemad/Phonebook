@@ -77,3 +77,43 @@ char* v_email(char* email)
     }
     return error;
 }
+char* v_name(char* name)
+{
+    int i, flag = 1;
+    int length = strlen(name);
+    while(flag) {
+        flag = 0;
+        for (i = 0; i < length ; ++i) {
+            char c = name[i];
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) {
+                flag = 1;
+                break;
+            }
+        }
+
+        if (flag)
+        {
+            printf("Make sure you are entering letters from the alphabet.\n");
+            printf("Please re-enter the name:\n");
+            scanf("%14s", name);
+            getchar();
+        }
+        else {
+            return name;
+        }
+    }
+}
+char* v_dob(char* dob)
+{
+    int day, month,year;
+    sscanf(dob,"%d-%d-%d",&day, &month, &year);
+
+    while (dob[2] != '-' || dob[5] != '-' || day > 31 || day < 1 || month < 1 || month > 12 || year > 2020)
+    {
+        printf("Please make sure you're entering logical values and in the correct format!\n");
+        printf("Please enter the contact birthday ex'13-03-2000':\n");
+        scanf("%10s", dob);
+        sscanf(dob,"%d-%d-%d",&day, &month, &year);
+    }
+    return dob;
+}
