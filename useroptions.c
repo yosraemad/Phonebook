@@ -5,59 +5,48 @@
 #include "models.h"
 #include "validation.h"
 
-void sortLastName ();
 void add_new_contact()
 {
-    // VALIDATIONS TO BE DONE
-    Count++;
-    char error[100];
-    Contacts = (Contact*)realloc(Contacts,Count* sizeof(*Contacts));
-    char phone[100];
-    char email[200];
+    // TODO VALIDATIONS TO BE DONE
+    char name[15];
     char birthday[11];
     Contact contact;
+
     printf("Please enter the contact first name:\n");
-    scanf("%s", contact.firstName);
+    scanf("%14s", name);
+    //fgets(name, 14, stdin);
+    strcpy(contact.firstName, v_name(name));
+
     printf("Please enter the contact last name:\n");
-    scanf("%s", contact.lastName);
-    printf("Please enter the contact number:\n");
-    scanf("%s", phone);
-    strcpy(error , v_number(phone));
-    while(strcmp(error,"") !=0){
-        printf(error);
-        scanf("%s", phone);
-        getchar();
-        strcpy(error , v_number(phone));
-    }
-    strcpy(contact.phoneNum,phone);
-    printf("Please enter the contact email:\n");
-    scanf("%s", email);
-    strcpy(error , v_email(email));
-    while(strcmp(error,"") !=0){
-        printf(error);
-        scanf("%s", email);
-        getchar();
-        strcpy(error , v_email(email));
-    }
-    strcpy(contact.email,email);
+    scanf("%14s", name);
+    strcpy(contact.lastName, v_name(name));
+
+    printf("Please enter the contact number ex'03-4320121':\n");
+    scanf("%10s", contact.phoneNum);
+
+    printf("Please enter the contact email ex'steven@gmail.com':\n");
+    scanf("%256s", contact.email);
+
     printf("Please enter the contact address:\n");
     scanf (" %[^\n]s", contact.stName);
-    printf("Please enter the contact birthday:\n");
+
+    printf("Please enter the contact birthday ex'13-03-2000':\n");
     scanf("%s", birthday);
 
     DateOfBirth *bd = BirthdayConstructor(birthday);
     contact.dateOfBirth = *bd;
+
+    Count++;
+    Contacts = (Contact*)realloc(Contacts,Count* sizeof(*Contacts));
     Contacts[Count-1] = contact;
 
     printf("Contact added Successfully!\n\n");
     printContact(contact);
     printf("\n");
-    free(error);
 }
 
 Contact** searchContacts(char* lastName, int* number)
 {
-    sortLastName();
     Contact** contacts = (Contact**)malloc(1 *sizeof(Contact));
     int i, j = 0;
     for (i = 0; i < Count; i++){
@@ -69,7 +58,7 @@ Contact** searchContacts(char* lastName, int* number)
     }
 
     if (!j) {
-        printf("No contact with this last name is found\n");
+        printf("No contact with this last name is found\n\n");
         return NULL;
     }
 
@@ -113,15 +102,16 @@ void delete_contact()
 void modify_contact()
 {
     char c;
-    int num,flag = 0, s = 0;
+    int num = 0,flag = 0, s = 0;
     char birthday[10];
     char lastName[15];
     printf("Please enter the contact's last name: \n");
     scanf(" %s", lastName);
     Contact** contacts = searchContacts(lastName, &num);
-    printContacts(*contacts, num);
+    if (!num) return;
+    //printContacts(*contacts, num);
     printf("Please enter the number of the contact you want to modify:\n");
-    scanf("%d",&s);
+    scanf(" %d",&s);
     while(s > num || s <= 0) {
         printf("Please enter a correct number:\n ");
         scanf(" %d",&s);
@@ -162,6 +152,7 @@ void modify_contact()
     }
     printf("Contact Edited Successfully.\n\n");
     printContact(*selectedContact);
+    printf("\n");
 }
 
 void sortLastName ()
@@ -183,6 +174,7 @@ void sortLastName ()
 
     printContacts(Contacts, Count);
 }
+
 void sortDateOfBirth() {
     int i, pass, sorted = 0;
     Contact temp;
