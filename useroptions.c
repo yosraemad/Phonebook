@@ -3,17 +3,13 @@
 #include <string.h>
 
 #include "models.h"
-#include "validation.h"
 
-void sortLastName ();
 void add_new_contact()
 {
     // VALIDATIONS TO BE DONE
     Count++;
-    char error[100];
     Contacts = (Contact*)realloc(Contacts,Count* sizeof(*Contacts));
-    char phone[100];
-    char email[200];
+
     char birthday[11];
     Contact contact;
     printf("Please enter the contact first name:\n");
@@ -21,25 +17,9 @@ void add_new_contact()
     printf("Please enter the contact last name:\n");
     scanf("%s", contact.lastName);
     printf("Please enter the contact number:\n");
-    scanf("%s", phone);
-    strcpy(error , v_number(phone));
-    while(strcmp(error,"") !=0){
-        printf(error);
-        scanf("%s", phone);
-        getchar();
-        strcpy(error , v_number(phone));
-    }
-    strcpy(contact.phoneNum,phone);
+    scanf("%s", contact.phoneNum);
     printf("Please enter the contact email:\n");
-    scanf("%s", email);
-    strcpy(error , v_email(email));
-    while(strcmp(error,"") !=0){
-        printf(error);
-        scanf("%s", email);
-        getchar();
-        strcpy(error , v_email(email));
-    }
-    strcpy(contact.email,email);
+    scanf("%s", contact.email);
     printf("Please enter the contact address:\n");
     scanf (" %[^\n]s", contact.stName);
     printf("Please enter the contact birthday:\n");
@@ -52,12 +32,10 @@ void add_new_contact()
     printf("Contact added Successfully!\n\n");
     printContact(contact);
     printf("\n");
-    free(error);
 }
 
 Contact** searchContacts(char* lastName, int* number)
 {
-    sortLastName();
     Contact** contacts = (Contact**)malloc(1 *sizeof(Contact));
     int i, j = 0;
     for (i = 0; i < Count; i++){

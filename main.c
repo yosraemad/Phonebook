@@ -15,23 +15,10 @@ void main() {
     char lastName[15];
 
     load(fileName);
-    char help[2];
     int choice;
-    char*end;
-    char c;
     while(1) {
         showMenu();
-        fgets(help,100,stdin);
-        help[1] = 0;
-        choice = strtol(help,&end,10);
-        while(!choice){
-            printf("Please enter a number\n");
-            fgets(help,100,stdin);
-            help[1] = 0;
-            choice = strtol(help,&end,10);
-
-        }
-
+        scanf("%d", &choice);
         switch (choice) {
             case 1:
                 printf("Please the enter the file name with extension ex'contacts.txt':\n");
@@ -68,8 +55,8 @@ void main() {
             default:
                 printf("Command not recognized\n");
 
-            }
 
+        }
     }
 }
 

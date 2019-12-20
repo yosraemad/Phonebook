@@ -15,8 +15,6 @@ CMakeFiles/Phonebook.dir/models.c.obj: ../models.h
 
 CMakeFiles/Phonebook.dir/useroptions.c.obj: ../models.h
 CMakeFiles/Phonebook.dir/useroptions.c.obj: ../useroptions.c
-CMakeFiles/Phonebook.dir/useroptions.c.obj: ../validation.h
 
 CMakeFiles/Phonebook.dir/validation.c.obj: ../validation.c
-CMakeFiles/Phonebook.dir/validation.c.obj: ../validation.h
 
