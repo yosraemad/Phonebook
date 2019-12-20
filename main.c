@@ -5,14 +5,16 @@
 #include "useroptions.h"
 
 int Count = 0;
-Contact Contacts[100];
+Contact *Contacts ;
 
 void showMenu();
 
 void main() {
-    //  BUG TO BE FIXED OF ENTERTING STRING
-    char fileName[30] = "contacts.txt";
+    //  TODO BUG TO BE FIXED OF ENTERING STRING
+    char fileName[30] = "contacts";
     char lastName[15];
+    char c;
+    int flag = 1;
 
     load(fileName);
     int choice;
@@ -21,7 +23,7 @@ void main() {
         scanf("%d", &choice);
         switch (choice) {
             case 1:
-                printf("Please the enter the file name with extension ex'contacts.txt':\n");
+                printf("Please the enter the file name:\n");
                 scanf("%s", fileName);
                 load(fileName);
                 printContacts(Contacts, Count);
@@ -50,12 +52,34 @@ void main() {
             case 8:
                 printContacts(Contacts, Count);
                 break;
+
             case 9:
-                exit(0);
+                printf("Make sure you've saved your changes before quitting or all changes will be discarded\n");
+                printf("Please enter the number of the command:\n");
+                printf("1. Exit\n");
+                printf("2. Save and Exit\n");
+                scanf(" %c", &c);
+
+                while (flag) {
+                    flag = 0;
+                    switch (c) {
+                        case ('1'):
+                            printf("Goodbye!");
+                            exit(0);
+                        case ('2'):
+                            saveFile(fileName);
+                            printf("Goodbye!");
+                            exit(0);
+                        default:
+                            printf("Command not recognized please renter the number of operation:\n");
+                            scanf(" %c", &c);
+                            flag = 1;
+                            break;
+                    }
+                }
+
             default:
                 printf("Command not recognized\n");
-
-
         }
     }
 }
