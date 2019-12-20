@@ -7,10 +7,7 @@
 
 void add_new_contact()
 {
-    // VALIDATIONS TO BE DONE
-    Count++;
-    Contacts = (Contact*)realloc(Contacts,Count* sizeof(*Contacts));
-
+    // TODO VALIDATIONS TO BE DONE
     char name[15];
     char birthday[11];
     Contact contact;
@@ -38,6 +35,9 @@ void add_new_contact()
 
     DateOfBirth *bd = BirthdayConstructor(birthday);
     contact.dateOfBirth = *bd;
+
+    Count++;
+    Contacts = (Contact*)realloc(Contacts,Count* sizeof(*Contacts));
     Contacts[Count-1] = contact;
 
     printf("Contact added Successfully!\n\n");
@@ -58,7 +58,7 @@ Contact** searchContacts(char* lastName, int* number)
     }
 
     if (!j) {
-        printf("No contact with this last name is found\n");
+        printf("No contact with this last name is found\n\n");
         return NULL;
     }
 
@@ -172,6 +172,7 @@ void sortLastName ()
 
     printContacts(Contacts, Count);
 }
+
 void sortDateOfBirth() {
     int i, pass, sorted = 0;
     Contact temp;
