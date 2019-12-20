@@ -27,6 +27,23 @@ DateOfBirth *BirthdayConstructor(char* s)
     return birthday;
 }
 
+char* readInput(char* input, int n)
+{
+
+    char result[n];
+    //scanf("%s", input);
+    scanf (" %[^\n]s", input);
+    strncpy(result, input, n - 1);
+    return input;
+
+/*
+    getchar();
+    fgets(input, 1000, stdin);
+    input[n-1] = 0;
+    return input;
+    */
+}
+
 void printContact(Contact c){
     printf("First Name = %s\n", c.firstName);
     printf("Last Name = %s\n", c.lastName);

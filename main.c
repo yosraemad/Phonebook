@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "io.h"
 #include "useroptions.h"
+#include "validation.h"
 
 int Count = 0;
 Contact *Contacts ;
@@ -30,7 +32,10 @@ void main() {
                 break;
             case 2:
                 printf("Please enter the contact's last name: \n");
-                scanf("%s", lastName);
+                strcpy(lastName, readInput(lastName, sizeof(lastName)));
+                strcpy(lastName, v_name(lastName));
+                //scanf("%s", lastName);
+
                 int num = 0;
                 searchContacts(lastName, &num);
                 break;

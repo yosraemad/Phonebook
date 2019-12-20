@@ -13,25 +13,25 @@ void add_new_contact()
     Contact contact;
 
     printf("Please enter the contact first name:\n");
-    scanf("%14s", name);
-    //fgets(name, 14, stdin);
+    strcpy(name, readInput(name, sizeof(name)));
     strcpy(contact.firstName, v_name(name));
 
     printf("Please enter the contact last name:\n");
-    scanf("%14s", name);
+    strcpy(name, readInput(name, sizeof(name)));
     strcpy(contact.lastName, v_name(name));
 
     printf("Please enter the contact number ex'03-4320121':\n");
-    scanf("%10s", contact.phoneNum);
+    strcpy(contact.phoneNum, readInput(contact.phoneNum, sizeof(contact.phoneNum)));
 
     printf("Please enter the contact email ex'steven@gmail.com':\n");
-    scanf("%256s", contact.email);
+    strcpy(contact.email, readInput(contact.email, sizeof(contact.email)));
 
     printf("Please enter the contact address:\n");
-    scanf (" %[^\n]s", contact.stName);
+    strcpy(contact.stName, readInput(contact.stName, sizeof(contact.stName)));
+    //scanf (" %[^\n]s", contact.stName);
 
     printf("Please enter the contact birthday ex'13-03-2000':\n");
-    scanf("%s", birthday);
+    strcpy(birthday, readInput(birthday, sizeof(birthday)));
 
     DateOfBirth *bd = BirthdayConstructor(birthday);
     contact.dateOfBirth = *bd;
@@ -73,8 +73,17 @@ void delete_contact()
     char firstName[15];
     char lastName[15];
     int i,j, flag = 0;
-    printf("Please enter the first and last name of the contact ex'Ahmed Muhammed':\n");
-    scanf("%s %s", firstName, lastName);
+    //printf("Please enter the first and last name of the contact ex'Ahmed Muhammed':\n");
+    //scanf("%s %s", firstName, lastName);
+
+    printf("Please enter the first name:\n");
+    strcpy(firstName, readInput(firstName, sizeof(firstName)));
+    strcpy(firstName, v_name(firstName));
+
+    printf("Please enter the last name:\n");
+    strcpy(lastName, readInput(lastName, sizeof(lastName)));
+    strcpy(lastName, v_name(lastName));
+
     for (i = 0; i < Count; i++) {
         if (!strcasecmp(Contacts[i].firstName, firstName))
             if (!strcasecmp(Contacts[i].lastName, lastName)) {
@@ -93,19 +102,20 @@ void delete_contact()
     for(j = i; j < Count; j++)
         Contacts [j]=Contacts[j+1] ;
 
-    printf("Contact deleted successfully!\n");
+    printf("Contact deleted successfully!\n\n");
     Count--;
 }
 
 void modify_contact()
 {
+    //TODO Validations to be added
     char c;
     int num = 0,flag = 0, s = 0;
     char birthday[10];
-    char lastName[15];
+    char name[15];
     printf("Please enter the contact's last name: \n");
-    scanf(" %s", lastName);
-    Contact** contacts = searchContacts(lastName, &num);
+    scanf(" %s", name);
+    Contact** contacts = searchContacts(name, &num);
     if (!num) return;
     //printContacts(*contacts, num);
     printf("Please enter the number of the contact you want to modify:\n");
@@ -124,22 +134,30 @@ void modify_contact()
         printf("Please enter the new value:\n");
         switch (c) {
             case ('L'):
-                scanf("%s", selectedContact->lastName);
+                //scanf("%14s", name);
+                strcpy(name, readInput(name, sizeof(name)));
+                strcpy(selectedContact->lastName, v_name(name));
                 break;
             case ('F'):
-                scanf("%s", selectedContact->firstName);
+                //scanf("%14s", name);
+                strcpy(name, readInput(name, sizeof(name)));
+                strcpy(selectedContact->firstName, v_name(name));
                 break;
             case ('S'):
-                scanf("%s", selectedContact->stName);
+                //scanf("%99s", selectedContact->stName);
+                strcpy(selectedContact->stName, readInput(selectedContact->stName, sizeof(selectedContact->stName)));
                 break;
             case ('E'):
-                scanf("%s", selectedContact->email);
+                //scanf("%255s", selectedContact->email);
+                strcpy(selectedContact->email, readInput(selectedContact->email, sizeof(selectedContact->email)));
                 break;
             case ('P'):
-                scanf("%s", selectedContact->phoneNum);
+                //scanf("%10s", selectedContact->phoneNum);
+                strcpy(selectedContact->phoneNum, readInput(selectedContact->phoneNum, sizeof(selectedContact->phoneNum)));
                 break;
             case ('D'):
-                scanf("%s", birthday);
+                //scanf("%s", birthday);
+                strcpy(birthday, readInput(name, sizeof(birthday)));
                 selectedContact->dateOfBirth = *BirthdayConstructor(birthday);
                 break;
             default:
@@ -222,4 +240,36 @@ void sort()
     } else {
         printf("Command not recognized please try again!\n\n");
     }
+}
+
+Contact** multiSearch(int* number)
+{
+    int j = 0;
+    Contact** contacts = (Contact**)malloc(1 *sizeof(Contact));
+
+    Contact* contact = (Contact*)malloc(sizeof(Contact));
+    char birthday[10];
+
+    printf("Please enter the contact last name:\n");
+    scanf("%14s", contact->lastName);
+    strcpy(contact->lastName, v_name(contact->lastName));
+
+    printf("Please enter the contact first name:\n");
+    scanf("%14s", contact->firstName);
+    strcpy(contact->lastName, v_name(contact->lastName));
+
+    printf("Please enter the contact number ex'03-4320121':\n");
+    scanf("%10s", contact->phoneNum);
+
+    printf("Please enter the contact email ex'steven@gmail.com':\n");
+    scanf("%256s", contact->email);
+
+    printf("Please enter the contact address:\n");
+    scanf (" %[^\n]s", contact->stName);
+
+    printf("Please enter the contact birthday ex'13-03-2000':\n");
+    scanf("%10s", birthday);
+    contact->dateOfBirth = *BirthdayConstructor(birthday);
+    *number = j;
+    return contacts;
 }
