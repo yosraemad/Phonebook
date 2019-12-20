@@ -26,6 +26,7 @@ DateOfBirth *BirthdayConstructor(char* s)
     return birthday;
 }
 
+
 void printContact(Contact c){
     printf("First Name = %s\n", c.firstName);
     printf("Last Name = %s\n", c.lastName);

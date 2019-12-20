@@ -44,6 +44,7 @@ char* v_email(char* email)
         strcpy(error, "Invalid email format\n");
         return error;
     }
+
     else {
         for (i = 0; i < strlen(email); i++) {
             if (email[i] == '@') {

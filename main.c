@@ -32,6 +32,7 @@ void main() {
 
         }
 
+
         switch (choice) {
             case 1:
                 printf("Please the enter the file name with extension ex'contacts.txt':\n");

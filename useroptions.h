@@ -14,3 +14,4 @@ Contact** searchContacts(char* lastName, int* number);
 #define PHONEBOOK_USEROPTIONS_H
 
 #endif //PHONEBOOK_USEROPTIONS_H
+

@@ -25,3 +25,4 @@ void printContacts(Contact* contacts, int length);
 #define PHONEBOOK_MODELS_H
 
 #endif //PHONEBOOK_MODELS_H
+

@@ -39,6 +39,7 @@ void add_new_contact()
         getchar();
         strcpy(error , v_email(email));
     }
+
     strcpy(contact.email,email);
     printf("Please enter the contact address:\n");
     scanf (" %[^\n]s", contact.stName);

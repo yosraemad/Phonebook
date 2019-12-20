@@ -40,6 +40,7 @@ void load(char* fileName){
     {
         Contacts[i] = saveToStruct(str);
         i++;
+
     }
 
     fclose(f);
