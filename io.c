@@ -22,8 +22,6 @@ void getNumOfLines(FILE * f){
 }
 
 void load(char* fileName){
-    // TODO Count the last contact without \n in the end if added manually
-    strcat(fileName,".txt");
     char str[512];
     Count = 0;
     FILE *f = fopen(fileName,"a+");
@@ -49,6 +47,10 @@ void load(char* fileName){
 
 void saveFile(char* fileName){
     FILE *fp = fopen(fileName,"w");
+    if(!fp){
+        printf("Unable to save file %s",fileName);
+        return;
+    }
     int i;
     for(i = 0; i<Count; i++){
         fprintf(fp,"%s,%s,%s-%s-%s,%s,%s,%s\n",Contacts[i].lastName,Contacts[i].firstName,Contacts[i].dateOfBirth.day,Contacts[i].dateOfBirth.month,Contacts[i].dateOfBirth.year,Contacts[i].stName,Contacts[i].email,Contacts[i].phoneNum);

@@ -2,8 +2,7 @@
 #include <stdlib.h>
 
 char* v_number(char* phone);
-char* v_name(char* name);
-char* v_dob(char* dob);
+char* v_email(char* email);
 
 #ifndef PHONEBOOK_VALIDATION_H
 #define PHONEBOOK_VALIDATION_H
