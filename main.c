@@ -21,7 +21,7 @@ void main() {
     char c;
     while(1) {
         showMenu();
-        fgets(help,100,stdin);
+        fgets(help,10000,stdin);
         help[1] = 0;
         choice = strtol(help,&end,10);
         while(!choice){
@@ -29,9 +29,7 @@ void main() {
             fgets(help,100,stdin);
             help[1] = 0;
             choice = strtol(help,&end,10);
-
         }
-
         switch (choice) {
             case 1:
                 printf("Please the enter the file name with extension ex'contacts.txt':\n");
