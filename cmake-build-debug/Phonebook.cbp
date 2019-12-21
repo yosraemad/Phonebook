@@ -99,6 +99,9 @@
 		<Unit filename="/home/heromora/CLionProjects/Phonebook/useroptions.h">
 			<Option target="Phonebook"/>
 		</Unit>
+		<Unit filename="/home/heromora/CLionProjects/Phonebook/validation.c">
+			<Option target="Phonebook"/>
+		</Unit>
 		<Unit filename="/home/heromora/CLionProjects/Phonebook/validation.h">
 			<Option target="Phonebook"/>
 		</Unit>

@@ -10,9 +10,15 @@ CMakeFiles/Phonebook.dir/main.c.o
  /home/heromora/CLionProjects/Phonebook/main.c
  /home/heromora/CLionProjects/Phonebook/models.h
  /home/heromora/CLionProjects/Phonebook/useroptions.h
+ /home/heromora/CLionProjects/Phonebook/validation.h
 CMakeFiles/Phonebook.dir/models.c.o
  /home/heromora/CLionProjects/Phonebook/models.c
  /home/heromora/CLionProjects/Phonebook/models.h
+ /home/heromora/CLionProjects/Phonebook/validation.h
 CMakeFiles/Phonebook.dir/useroptions.c.o
  /home/heromora/CLionProjects/Phonebook/models.h
  /home/heromora/CLionProjects/Phonebook/useroptions.c
+ /home/heromora/CLionProjects/Phonebook/validation.h
+CMakeFiles/Phonebook.dir/validation.c.o
+ /home/heromora/CLionProjects/Phonebook/models.h
+ /home/heromora/CLionProjects/Phonebook/validation.c
