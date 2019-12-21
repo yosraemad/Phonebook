@@ -4,10 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/heromora/CLionProjects/Phonebook/io.c" "/home/heromora/CLionProjects/Phonebook/cmake-build-debug/CMakeFiles/Phonebook.dir/io.c.o"
-  "/home/heromora/CLionProjects/Phonebook/main.c" "/home/heromora/CLionProjects/Phonebook/cmake-build-debug/CMakeFiles/Phonebook.dir/main.c.o"
-  "/home/heromora/CLionProjects/Phonebook/models.c" "/home/heromora/CLionProjects/Phonebook/cmake-build-debug/CMakeFiles/Phonebook.dir/models.c.o"
-  "/home/heromora/CLionProjects/Phonebook/useroptions.c" "/home/heromora/CLionProjects/Phonebook/cmake-build-debug/CMakeFiles/Phonebook.dir/useroptions.c.o"
+  "E:/clion projects/PhonebookFork/io.c" "E:/clion projects/PhonebookFork/cmake-build-debug/CMakeFiles/Phonebook.dir/io.c.obj"
+  "E:/clion projects/PhonebookFork/main.c" "E:/clion projects/PhonebookFork/cmake-build-debug/CMakeFiles/Phonebook.dir/main.c.obj"
+  "E:/clion projects/PhonebookFork/models.c" "E:/clion projects/PhonebookFork/cmake-build-debug/CMakeFiles/Phonebook.dir/models.c.obj"
+  "E:/clion projects/PhonebookFork/useroptions.c" "E:/clion projects/PhonebookFork/cmake-build-debug/CMakeFiles/Phonebook.dir/useroptions.c.obj"
+  "E:/clion projects/PhonebookFork/validation.c" "E:/clion projects/PhonebookFork/cmake-build-debug/CMakeFiles/Phonebook.dir/validation.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
