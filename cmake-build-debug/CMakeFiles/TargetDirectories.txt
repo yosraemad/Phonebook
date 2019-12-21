@@ -1,3 +1,0 @@
-/home/heromora/CLionProjects/Phonebook/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/heromora/CLionProjects/Phonebook/cmake-build-debug/CMakeFiles/Phonebook.dir
-/home/heromora/CLionProjects/Phonebook/cmake-build-debug/CMakeFiles/edit_cache.dir

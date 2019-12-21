@@ -20,9 +20,11 @@ extern Contact *Contacts;
 DateOfBirth *BirthdayConstructor(char* s);
 char* readInput(char* input, int n);
 void printContact(Contact c);
+char* readInput(char* input, int n);
 void printContacts(Contact* contacts, int length);
 
 #ifndef PHONEBOOK_MODELS_H
 #define PHONEBOOK_MODELS_H
 
 #endif //PHONEBOOK_MODELS_H
+

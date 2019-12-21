@@ -18,17 +18,24 @@ void getNumOfLines(FILE * f){
         if (c == '\n')
             Count++;
     }
+
+
+    if(Count != 0){
+        fseek(f,-1L,SEEK_CUR);
+        c = getc(f);
+        if(c!='\n')
+            Count++;}
+
     rewind(f);
 }
 
 void load(char* fileName){
-    // TODO Count the last contact without \n in the end if added manually
     strcat(fileName,".txt");
     char str[512];
     Count = 0;
     FILE *f = fopen(fileName,"a+");
     getNumOfLines(f);
-
+    printf("Number of contacts: %d\n", Count);
     if(!Count) {
         printf("File not found we've created a new file for you.\n\n");
         char dummy[] = "Steven,Thomas,10-06-1995,26 Elhoreya Street,sthomas@gmail.com,03-4876321\n";
@@ -43,6 +50,7 @@ void load(char* fileName){
     {
         Contacts[i] = saveToStruct(str);
         i++;
+
     }
 
     fclose(f);
