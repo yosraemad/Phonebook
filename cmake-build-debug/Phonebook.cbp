@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Phonebook"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/heromora/CLionProjects/Phonebook/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/heromora/CLionProjects/Phonebook/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Phonebook">
+				<Option output="/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Phonebook" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/heromora/CLionProjects/Phonebook/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 Phonebook"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Phonebook/fast">
+				<Option output="/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Phonebook" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/heromora/CLionProjects/Phonebook/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 Phonebook/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/heromora/CLionProjects/Phonebook/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/heromora/CLionProjects/Phonebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/heromora/CLionProjects/Phonebook/io.c">
+			<Option target="Phonebook"/>
+		</Unit>
+		<Unit filename="/home/heromora/CLionProjects/Phonebook/io.h">
+			<Option target="Phonebook"/>
+		</Unit>
+		<Unit filename="/home/heromora/CLionProjects/Phonebook/main.c">
+			<Option target="Phonebook"/>
+		</Unit>
+		<Unit filename="/home/heromora/CLionProjects/Phonebook/models.c">
+			<Option target="Phonebook"/>
+		</Unit>
+		<Unit filename="/home/heromora/CLionProjects/Phonebook/models.h">
+			<Option target="Phonebook"/>
+		</Unit>
+		<Unit filename="/home/heromora/CLionProjects/Phonebook/useroptions.c">
+			<Option target="Phonebook"/>
+		</Unit>
+		<Unit filename="/home/heromora/CLionProjects/Phonebook/useroptions.h">
+			<Option target="Phonebook"/>
+		</Unit>
+		<Unit filename="/home/heromora/CLionProjects/Phonebook/validation.c">
+			<Option target="Phonebook"/>
+		</Unit>
+		<Unit filename="/home/heromora/CLionProjects/Phonebook/validation.h">
+			<Option target="Phonebook"/>
+		</Unit>
+		<Unit filename="/home/heromora/CLionProjects/Phonebook/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
