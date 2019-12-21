@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 char* v_number(char* phone);
+char* v_email(char* email);
 char* v_name(char* name);
 char* v_dob(char* dob);
 

@@ -15,14 +15,25 @@ void main() {
     //  TODO BUG TO BE FIXED OF ENTERING STRING
     char fileName[30] = "contacts";
     char lastName[15];
-    char c;
     int flag = 1;
 
     load(fileName);
+    char help[2];
+    char *end;
+    char c;
     int choice;
     while(1) {
         showMenu();
-        scanf("%d", &choice);
+        fgets(help, 10000, stdin);
+        help[1] = 0;
+        choice = strtol(help, &end, 10);
+        while (!choice) {
+            printf("Please enter a number\n");
+            fgets(help, 100, stdin);
+            help[1] = 0;
+            choice = strtol(help, &end, 10);
+        }
+
         switch (choice) {
             case 1:
                 printf("Please the enter the file name:\n");

@@ -72,7 +72,7 @@ void delete_contact()
 {
     char firstName[15];
     char lastName[15];
-    int i,j, flag = 0;
+    int i,j = 0,s = 0, flag = 0;
     //printf("Please enter the first and last name of the contact ex'Ahmed Muhammed':\n");
     //scanf("%s %s", firstName, lastName);
 
@@ -84,6 +84,39 @@ void delete_contact()
     strcpy(lastName, readInput(lastName, sizeof(lastName)));
     strcpy(lastName, v_name(lastName));
 
+
+    Contact** contacts = (Contact**)malloc(1 *sizeof(Contact));
+    for (i = 0; i < Count; i++){
+        if (!strcasecmp(Contacts[i].lastName, lastName)) {
+            if (!strcasecmp(Contacts[i].firstName, firstName)) {
+                contacts = realloc(contacts, (j + 1) * sizeof(Contact));
+                contacts[j] = &Contacts[i];
+                j++;
+            }
+        }
+    }
+
+    if (!j) {
+        printf("No contact with first and last name is found\n\n");
+        return;
+    }
+
+    printContacts(*contacts, j);
+    printf("Please enter the number of the contact you wish to delete:\n");
+    scanf(" %d",&s);
+    while(s > j || s <= 0) {
+        printf("Please enter a correct number:\n");
+        scanf(" %d",&s);
+    }
+
+    Contact* selectedContact = contacts[s - 1];
+
+    printf("You've chosen this contact:\n");
+    printContact(*selectedContact);
+
+
+
+    /*
     for (i = 0; i < Count; i++) {
         if (!strcasecmp(Contacts[i].firstName, firstName))
             if (!strcasecmp(Contacts[i].lastName, lastName)) {
@@ -92,12 +125,13 @@ void delete_contact()
                 break;
             }
     }
-
+     */
+    /*
     if (!flag) {
         printf("No contact with these first name and last name found\n");
         return;
     }
-
+    */
 
     for(j = i; j < Count; j++)
         Contacts [j]=Contacts[j+1] ;
