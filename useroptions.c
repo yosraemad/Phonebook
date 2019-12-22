@@ -29,9 +29,9 @@ void add_new_contact()
     strcpy(email, readInput(email, sizeof(email)));
     strcpy(contact.email, v_email(email));
 
-    //todo validate st address
     printf("Please enter the contact address:\n");
     strcpy(contact.stName, readInput(contact.stName, sizeof(contact.stName)));
+    strcpy(contact.stName,v_address(contact.stName));
 
     printf("Please enter the contact birthday ex'13-03-2000':\n");
     strcpy(birthday, readInput(birthday, sizeof(birthday)));
@@ -182,9 +182,9 @@ void modify_contact()
                 strcpy(selectedContact->firstName, v_name(name));
                 break;
             case ('S'):
-                //todo validate st address
                 //scanf("%99s", selectedContact->stName);
                 strcpy(selectedContact->stName, readInput(selectedContact->stName, sizeof(selectedContact->stName)));
+                strcpy(selectedContact->stName,v_address(selectedContact->stName));
                 break;
             case ('E'):
                 //scanf("%255s", selectedContact->email);
@@ -373,7 +373,25 @@ Contact** enhancedSearch(Contact* targetContacts, int length, char* key, char* m
     }
     else if (!strcasecmp("d", mode))
     {
-        //TODO HANDLE COMPARING BIRTHDAY
+        DateOfBirth birthday = *BirthdayConstructor(key);
+        int day = atoi(birthday.day);
+        int month = atoi(birthday.month);
+        int year = atoi(birthday.year);
+
+        for (i = 0; i < length; i++)
+        {
+            int targetDay = atoi(targetContacts[i].dateOfBirth.day);
+            int targetMonth = atoi(targetContacts[i].dateOfBirth.month);
+            int targetYear = atoi(targetContacts[i].dateOfBirth.year);
+            if (targetDay == day && targetMonth == month && targetYear == year) {
+                contacts = realloc(contacts, sizeof(Contact) * (j + 1));
+                contacts[j] = &targetContacts[i];
+                j++;
+            }
+        }
+        *num = j;
+        if (!j) return NULL;
+        return contacts;
         /*
         for (i = 0; i < length; i++)
         {
@@ -391,7 +409,7 @@ Contact** enhancedSearch(Contact* targetContacts, int length, char* key, char* m
     }
     else
     {
-        //TODO HANDLE WRITING UNKOWN CHAR
+        printf("mode not detected\n");
     }
 
 
@@ -422,11 +440,8 @@ Contact** multiSearch()
     printf("Please enter the contact address:\n");
     strcpy(contact->stName, readInput(contact->stName, sizeof(contact->stName)));
 
-    //TODO you need to make sure birthday is working
-
-    //printf("Please enter the contact birthday ex'13-03-2000':\n");
-    //strcpy(birthday, readInput(birthday, sizeof(birthday)));
-    //strcpy(birthday,v_dob(birthday));
+    printf("Please enter the contact birthday ex'13-03-2000':\n");
+    strcpy(birthday, readInput(birthday, sizeof(birthday)));
     //DateOfBirth *bd = BirthdayConstructor(birthday);
     //contact->dateOfBirth = *bd;
 
@@ -442,8 +457,7 @@ Contact** multiSearch()
     if (!num) { printf("No Contacts is found"); return NULL;}
     contacts = enhancedSearch(*contacts, num, contact->stName, "s", &num);
     if (!num) { printf("No Contacts is found"); return NULL;}
-    //TODO TO BE EDITED
-    //contacts = enhancedSearch(*contacts, num, contact->dateOfBirth, "d", &num);
+    contacts = enhancedSearch(*contacts, num, birthday, "d", &num);
     if (!num) { printf("No Contacts is found\n"); return NULL;}
 
     printContacts(*contacts, num);

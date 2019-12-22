@@ -11,6 +11,8 @@ Contact *Contacts ;
 
 void showMenu();
 
+//TODO write comments
+
 void main() {
     char fileName[30] = "contacts";
     char lastName[15];
@@ -21,7 +23,7 @@ void main() {
     char *end;
     char c;
     int choice;
-    while(1) {
+    while (1) {
         showMenu();
         fgets(help, 10000, stdin);
         help[1] = 0;
@@ -41,71 +43,86 @@ void main() {
                 printContacts(Contacts, Count);
                 break;
             case 2:
-                //TODO To be converted into two methods search and multisearch - and search will contain this commented code
-                /*
-                printf("Please enter the contact's last name: \n");
-                strcpy(lastName, readInput(lastName, sizeof(lastName)));
-                strcpy(lastName, v_name(lastName));
-                //scanf("%s", lastName);
-
-                int num = 0;
-                searchContacts(lastName, &num);
-                 */
-                multiSearch();
-
-                break;
-            case 3:
-                add_new_contact();
-                break;
-            case 4:
-                delete_contact();
-                break;
-            case 5:
-                modify_contact();
-                break;
-            case 6:
-                sort();
-                break;
-            case 7:
-                saveFile(fileName);
-                break;
-            case 8:
-                printContacts(Contacts, Count);
-                break;
-
-            case 9:
-                printf("Make sure you've saved your changes before quitting or all changes will be discarded\n");
-                printf("Please enter the number of the command:\n");
-                printf("1. Exit\n");
-                printf("2. Save and Exit\n");
-                scanf(" %c", &c);
-
+                printf("Do you want to search by (L)ast name or (M)ulti-search?\n");
+                scanf("%c", &c);
+                getchar();
+                fflush(stdin);
+                flag = 1;
                 while (flag) {
                     flag = 0;
                     switch (c) {
-                        case ('1'):
-                            printf("Goodbye!");
-                            exit(0);
-                        case ('2'):
-                            saveFile(fileName);
-                            printf("Goodbye!");
-                            exit(0);
+                        case ('L'):
+                            printf("Please enter the contact's last name: \n");
+                            strcpy(lastName, readInput(lastName, sizeof(lastName)));
+                            strcpy(lastName, v_name(lastName));
+                            //scanf("%s", lastName);
+
+                            int num = 0;
+                            searchContacts(lastName, &num);
+                            break;
+                        case ('M'):
+                            multiSearch();
+                            break;
                         default:
-                            printf("Command not recognized please renter the number of operation:\n");
+                            printf("Command not recognized please renter the operation:\n");
                             scanf(" %c", &c);
                             flag = 1;
                             break;
                     }
-                }
+                    break;
+                    case 3:
+                        add_new_contact();
+                    break;
+                    case 4:
+                        delete_contact();
+                    break;
+                    case 5:
+                        modify_contact();
+                    break;
+                    case 6:
+                        sort();
+                    break;
+                    case 7:
+                        saveFile(fileName);
+                    break;
+                    case 8:
+                        printContacts(Contacts, Count);
+                    break;
 
-            default:
-                printf("Command not recognized\n");
+                    case 9:
+                        printf("Make sure you've saved your changes before quitting or all changes will be discarded\n");
+                    printf("Please enter the number of the command:\n");
+                    printf("1. Exit\n");
+                    printf("2. Save and Exit\n");
+                    scanf(" %c", &c);
+                    fflush(stdin);
+                    flag = 1;
+                    while (flag) {
+                        flag = 0;
+                        switch (c) {
+                            case ('1'):
+                                printf("Goodbye!");
+                                exit(0);
+                            case ('2'):
+                                saveFile(fileName);
+                                printf("Goodbye!");
+                                exit(0);
+                            default:
+                                printf("Command not recognized please renter the number of operation:\n");
+                                scanf(" %c", &c);
+                                flag = 1;
+                                break;
+                        }
+                    }
+
+                    default:
+                        printf("Command not recognized\n");
+                }
         }
     }
 }
 
-
-void showMenu(){
+void showMenu() {
     printf("Welcome to the Phonebook!!\n");
     printf("Please choose one of the following commands\n");
     printf("1 --> Load\n");
