@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #include "models.h"
 #include "validation.h"
@@ -29,19 +30,32 @@ DateOfBirth *BirthdayConstructor(char* s)
 
 char* readInput(char* input, int n)
 {
-
+/*
     char result[n];
     //scanf("%s", input);
     scanf (" %[^\n]s", input);
     strncpy(result, input, n - 1);
     return input;
+*/
 
-/*
-    getchar();
-    fgets(input, 1000, stdin);
-    input[n-1] = 0;
+
+    //getchar();
+    char buffer[1000];
+    fgets(buffer, sizeof(buffer), stdin);
+    for (int i = 0; i < n; i++) {
+        if (buffer[0] == '\n')
+        {
+            input[0] = '\0';
+            return input;
+        }
+        else if (buffer[i] == '\n' || buffer[i] == '\0'){
+            input[i] = '\0';
+            break;
+        }
+        input[i] = buffer[i];
+    }
+    input[n-1] = '\0';
     return input;
-    */
 }
 
 void printContact(Contact c){
@@ -61,4 +75,46 @@ void printContacts(Contact* contacts, int length)
         printContact(contacts[i]);
         printf("\n");
     }
+}
+
+char* stristr( const char* str1, const char* str2 )
+{
+    const char* p1 = str1 ;
+    const char* p2 = str2 ;
+    const char* r = *p2 == 0 ? str1 : 0 ;
+
+    while( *p1 != 0 && *p2 != 0 )
+    {
+        if( tolower( (unsigned char)*p1 ) == tolower( (unsigned char)*p2 ) )
+        {
+            if( r == 0 )
+            {
+                r = p1 ;
+            }
+
+            p2++ ;
+        }
+        else
+        {
+            p2 = str2 ;
+            if( r != 0 )
+            {
+                p1 = r + 1 ;
+            }
+
+            if( tolower( (unsigned char)*p1 ) == tolower( (unsigned char)*p2 ) )
+            {
+                r = p1 ;
+                p2++ ;
+            }
+            else
+            {
+                r = 0 ;
+            }
+        }
+
+        p1++ ;
+    }
+
+    return *p2 == 0 ? (char*)r : 0 ;
 }

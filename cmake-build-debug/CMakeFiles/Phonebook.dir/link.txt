@@ -1,3 +1,1 @@
-"E:\clion\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\Phonebook.dir/objects.a
-C:\MinGW\bin\ar.exe cr CMakeFiles\Phonebook.dir/objects.a @CMakeFiles\Phonebook.dir\objects1.rsp
-C:\MinGW\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\Phonebook.dir/objects.a -Wl,--no-whole-archive  -o Phonebook.exe -Wl,--out-implib,libPhonebook.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Phonebook.dir\linklibs.rsp
+/usr/bin/cc -g   CMakeFiles/Phonebook.dir/main.c.o CMakeFiles/Phonebook.dir/useroptions.c.o CMakeFiles/Phonebook.dir/io.c.o CMakeFiles/Phonebook.dir/models.c.o CMakeFiles/Phonebook.dir/validation.c.o  -o Phonebook 

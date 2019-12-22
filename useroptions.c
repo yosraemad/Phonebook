@@ -29,9 +29,9 @@ void add_new_contact()
     strcpy(email, readInput(email, sizeof(email)));
     strcpy(contact.email, v_email(email));
 
+    //todo validate st address
     printf("Please enter the contact address:\n");
     strcpy(contact.stName, readInput(contact.stName, sizeof(contact.stName)));
-    //scanf (" %[^\n]s", contact.stName);
 
     printf("Please enter the contact birthday ex'13-03-2000':\n");
     strcpy(birthday, readInput(birthday, sizeof(birthday)));
@@ -182,6 +182,7 @@ void modify_contact()
                 strcpy(selectedContact->firstName, v_name(name));
                 break;
             case ('S'):
+                //todo validate st address
                 //scanf("%99s", selectedContact->stName);
                 strcpy(selectedContact->stName, readInput(selectedContact->stName, sizeof(selectedContact->stName)));
                 break;
@@ -283,37 +284,169 @@ void sort()
     }
 }
 
-Contact** multiSearch(int* number)
+Contact** enhancedSearch(Contact* targetContacts, int length, char* key, char* mode, int* num)
 {
+    int i = 0;
     int j = 0;
-    Contact** contacts = (Contact**)malloc(1 *sizeof(Contact));
+    Contact** contacts = (Contact**)malloc(1 * sizeof(Contact));
 
-    Contact* contact = (Contact*)malloc(sizeof(Contact));
-    char birthday[10];
+    if (!strcmp(key, "")) {
+        contacts = &targetContacts;
+        *num = length;
+        return contacts;
+    }
+    else if (!strcasecmp("l", mode))
+    {
+        for (i = 0; i < length; i++)
+        {
+            char *pch = stristr(targetContacts[i].lastName, key);
+            if (pch) {
+              contacts = realloc(contacts, sizeof(Contact) * (j + 1));
+              contacts[j] = &targetContacts[i];
+              j++;
+            }
+        }
+        *num = j;
+        if (!j) return NULL;
+        return contacts;
+    }
+    else if (!strcasecmp("f", mode))
+    {
+        for (i = 0; i < length; i++)
+        {
 
-    printf("Please enter the contact last name:\n");
-    scanf("%14s", contact->lastName);
-    strcpy(contact->lastName, v_name(contact->lastName));
+            char *pch = stristr(targetContacts[i].firstName, key);
+            if (pch) {
+                contacts = realloc(contacts, sizeof(Contact) * (j + 1));
+                contacts[j] = &targetContacts[i];
+                j++;
+            }
+        }
+        *num = j;
+        if (!j) return NULL;
+        return contacts;
+    }
+    else if (!strcasecmp("s", mode))
+    {
+        for (i = 0; i < length; i++)
+        {
+            char *pch = stristr(targetContacts[i].stName, key);
+            if (pch) {
+                contacts = realloc(contacts, sizeof(Contact) * (j + 1));
+                contacts[j] = &targetContacts[i];
+                j++;
+            }
+        }
+        *num = j;
+        if (!j) return NULL;
+        return contacts;
+    }
+    else if (!strcasecmp("e", mode))
+    {
+        for (i = 0; i < length; i++)
+        {
+            char *pch = stristr(targetContacts[i].email, key);
+            if (pch) {
+                contacts = realloc(contacts, sizeof(Contact) * (j + 1));
+                contacts[j] = &targetContacts[i];
+                j++;
+            }
+        }
+        *num = j;
+        if (!j) return NULL;
+        return contacts;
+    }
+    else if (!strcasecmp("p", mode))
+    {
+        for (i = 0; i < length; i++)
+        {
+            char *pch = stristr(targetContacts[i].phoneNum, key);
+            if (pch) {
+                contacts = realloc(contacts, sizeof(Contact) * (j + 1));
+                contacts[j] = &targetContacts[i];
+                j++;
+            }
+        }
+        *num = j;
+        if (!j) return NULL;
+        return contacts;
+    }
+    else if (!strcasecmp("d", mode))
+    {
+        //TODO HANDLE COMPARING BIRTHDAY
+        /*
+        for (i = 0; i < length; i++)
+        {
+            char *pch = stristr(targetContacts[i].phoneNum, key);
+            if (pch) {
+                contacts = realloc(contacts, sizeof(Contact) * (j + 1));
+                contacts[j] = &targetContacts[i];
+                j++;
+            }
+        }
+        *num = j;
+        if (!j) return NULL;
+        return contacts;
+         */
+    }
+    else
+    {
+        //TODO HANDLE WRITING UNKOWN CHAR
+    }
+
+
+}
+
+Contact** multiSearch()
+{
+    char name[15];
+    char birthday[11];
+    char phone[11];
+    char email[256];
+    Contact* contact = malloc(sizeof(Contact));
+
+    printf("Enter the fields you want to search with and leave the unwanted fields blank:\n");
 
     printf("Please enter the contact first name:\n");
-    scanf("%14s", contact->firstName);
-    strcpy(contact->lastName, v_name(contact->lastName));
+    strcpy(contact->firstName, readInput(name, sizeof(name)));
+
+    printf("Please enter the contact last name:\n");
+    strcpy(contact->lastName, readInput(name, sizeof(name)));
 
     printf("Please enter the contact number ex'03-4320121':\n");
-    strcpy(contact->phoneNum, readInput(contact->phoneNum, sizeof(contact->phoneNum)));
-    strcpy(contact->phoneNum, v_number(contact->phoneNum));
+    strcpy(contact->phoneNum, readInput(phone, sizeof(phone)));
 
     printf("Please enter the contact email ex'steven@gmail.com':\n");
-    strcpy(contact->email, readInput(contact->email, sizeof(contact->email)));
-    strcpy(contact->email, v_email(contact->email));
+    strcpy(contact->email, readInput(email, sizeof(email)));
 
     printf("Please enter the contact address:\n");
     strcpy(contact->stName, readInput(contact->stName, sizeof(contact->stName)));
 
-    printf("Please enter the contact birthday ex'13-03-2000':\n");
-    strcpy(birthday, readInput(birthday, sizeof(birthday)));
-    strcpy(birthday,v_dob(birthday));
-    contact->dateOfBirth = *BirthdayConstructor(birthday);
-    *number = j;
+    //TODO you need to make sure birthday is working
+
+    //printf("Please enter the contact birthday ex'13-03-2000':\n");
+    //strcpy(birthday, readInput(birthday, sizeof(birthday)));
+    //strcpy(birthday,v_dob(birthday));
+    //DateOfBirth *bd = BirthdayConstructor(birthday);
+    //contact->dateOfBirth = *bd;
+
+    Contact** contacts;
+    int num = 0;
+    contacts = enhancedSearch(Contacts, Count, contact->firstName, "f", &num);
+    if (!num) { printf("No Contacts is found"); return NULL;}
+    contacts = enhancedSearch(*contacts, num, contact->lastName, "l", &num);
+    if (!num) { printf("No Contacts is found"); return NULL;}
+    contacts = enhancedSearch(*contacts, num, contact->email, "e", &num);
+    if (!num) { printf("No Contacts is found"); return NULL;}
+    contacts = enhancedSearch(*contacts, num, contact->email, "e", &num);
+    if (!num) { printf("No Contacts is found"); return NULL;}
+    contacts = enhancedSearch(*contacts, num, contact->stName, "s", &num);
+    if (!num) { printf("No Contacts is found"); return NULL;}
+    //TODO TO BE EDITED
+    //contacts = enhancedSearch(*contacts, num, contact->dateOfBirth, "d", &num);
+    if (!num) { printf("No Contacts is found\n"); return NULL;}
+
+    printContacts(*contacts, num);
     return contacts;
+
 }

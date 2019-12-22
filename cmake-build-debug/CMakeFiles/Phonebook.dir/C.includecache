@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-E:/clion projects/PhonebookFork/io.c
+/home/heromora/CLionProjects/Phonebook/io.c
 stdio.h
 -
 string.h
@@ -14,11 +14,11 @@ string.h
 stdlib.h
 -
 io.h
-E:/clion projects/PhonebookFork/io.h
+/home/heromora/CLionProjects/Phonebook/io.h
 
-E:/clion projects/PhonebookFork/io.h
+/home/heromora/CLionProjects/Phonebook/io.h
 models.h
-E:/clion projects/PhonebookFork/models.h
+/home/heromora/CLionProjects/Phonebook/models.h
 
-E:/clion projects/PhonebookFork/models.h
+/home/heromora/CLionProjects/Phonebook/models.h
 
