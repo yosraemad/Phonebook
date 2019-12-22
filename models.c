@@ -48,13 +48,13 @@ char* readInput(char* input, int n)
             input[0] = '\0';
             return input;
         }
-        else if (buffer[i] == '\n' || buffer[i] == '\0') {
-            input[i] = 0;
+        else if (buffer[i] == '\n' || buffer[i] == '\0'){
+            input[i] = '\0';
             break;
         }
         input[i] = buffer[i];
     }
-    input[n-1] = 0;
+    input[n-1] = '\0';
     return input;
 }
 
@@ -76,6 +76,7 @@ void printContacts(Contact* contacts, int length)
         printf("\n");
     }
 }
+
 char* stristr( const char* str1, const char* str2 )
 {
     const char* p1 = str1 ;
@@ -84,7 +85,7 @@ char* stristr( const char* str1, const char* str2 )
 
     while( *p1 != 0 && *p2 != 0 )
     {
-        if( tolower((unsigned char)*p1 ) == tolower( (unsigned char)*p2 ) )
+        if( tolower( (unsigned char)*p1 ) == tolower( (unsigned char)*p2 ) )
         {
             if( r == 0 )
             {

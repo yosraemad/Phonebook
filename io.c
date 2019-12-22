@@ -35,10 +35,10 @@ void load(char* fileName){
     Count = 0;
     FILE *f = fopen(fileName,"a+");
     getNumOfLines(f);
-    printf("Number of contacts = %d\n", Count);
+    printf("Number of contacts: %d\n", Count);
     if(!Count) {
         printf("File not found we've created a new file for you.\n\n");
-        char dummy[] = "Steven,Thomas,10-06-1995,26 Elhoreya Street,sthomas@gmail.com,01111797870\n";
+        char dummy[] = "Steven,Thomas,10-06-1995,26 Elhoreya Street,sthomas@gmail.com,03-4876321\n";
         fputs(dummy, f);
         Count++;
         rewind(f);
