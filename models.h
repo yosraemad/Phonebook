@@ -10,7 +10,7 @@ typedef struct {
     char firstName[15];
     char stName[100];
     char email[256];
-    char phoneNum[11];
+    char phoneNum[100];
     DateOfBirth dateOfBirth;
 } Contact;
 
@@ -22,6 +22,7 @@ char* readInput(char* input, int n);
 void printContact(Contact c);
 char* readInput(char* input, int n);
 void printContacts(Contact* contacts, int length);
+char* stristr( const char* str1, const char* str2 );
 
 #ifndef PHONEBOOK_MODELS_H
 #define PHONEBOOK_MODELS_H

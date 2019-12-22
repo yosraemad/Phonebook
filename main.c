@@ -42,9 +42,7 @@ void main() {
                 printContacts(Contacts, Count);
                 break;
             case 2:
-                printf("Please enter the contact's last name: \n");
-                strcpy(lastName, readInput(lastName, sizeof(lastName)));
-                strcpy(lastName, v_name(lastName));
+                multiSearch();
                 //scanf("%s", lastName);
 
                 int num = 0;

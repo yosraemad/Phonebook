@@ -8,7 +8,9 @@ void delete_contact();
 void sort();
 void sortDateOfBirth();
 void sortLastName();
+Contact** multiSearch();
 Contact** searchContacts(char* lastName, int* number);
+Contact** enhancedSearch(char* key, char* mode, int* num);
 
 #ifndef PHONEBOOK_USEROPTIONS_H
 #define PHONEBOOK_USEROPTIONS_H
