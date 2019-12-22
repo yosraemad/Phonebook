@@ -4,6 +4,7 @@
 
 #include "models.h"
 
+//validates phone number
 char* v_number(char* phone)
 {
     fflush(stdin);
@@ -28,6 +29,7 @@ char* v_number(char* phone)
     return phone;
 }
 
+//validates email
 char* v_email(char* email)
 {
     int index;
@@ -83,6 +85,7 @@ char* v_email(char* email)
     return email;
 }
 
+//validates name
 char* v_name(char* name)
 {
     int flag = 1;
@@ -117,6 +120,7 @@ char* v_name(char* name)
     }
 }
 
+//validates address/street name
 char* v_address(char* address)
 {
     int flag = 1;
@@ -147,6 +151,7 @@ char* v_address(char* address)
         }
     }
 }
+//validates date of birth
 char* v_dob(char* dob)
 {
     int day, month,year;

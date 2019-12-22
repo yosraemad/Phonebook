@@ -1,15 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <conio.h>
 
 #include "io.h"
 #include "useroptions.h"
 #include "validation.h"
-
+#if defined(_WIN32)
+    #define PLATFORM_NAME "windows" // Windows
+#elif defined(__linux__)
+    #define PLATFORM_NAME "linux"
+#endif
 int Count = 0;
 Contact *Contacts ;
 
 void showMenu();
+void clearScreen();
 
 //TODO write comments
 
@@ -24,6 +30,7 @@ void main() {
     char c;
     int choice;
     while (1) {
+        clearScreen();
         showMenu();
         fgets(help, 10000, stdin);
         help[1] = 0;
@@ -34,7 +41,7 @@ void main() {
             help[1] = 0;
             choice = strtol(help, &end, 10);
         }
-
+        clearScreen();
         switch (choice) {
             case 1:
                 printf("Please the enter the file name:\n");
@@ -119,19 +126,28 @@ void main() {
                         printf("Command not recognized\n");
                 }
         }
+        printf("Press any key to continue");
+        getch();
     }
 }
 
 void showMenu() {
-    printf("Welcome to the Phonebook!!\n");
-    printf("Please choose one of the following commands\n");
-    printf("1 --> Load\n");
-    printf("2 --> Search\n");
-    printf("3 --> Add\n");
-    printf("4 --> Delete\n");
-    printf("5 --> Modify\n");
-    printf("6 --> Sort\n");
-    printf("7 --> Save\n");
-    printf("8 --> Print\n");
-    printf("9 --> Quit\n");
+    printf("\t\t --------Welcome to the Phonebook!!--------\n\n");
+    printf("\t\tPlease choose one of the following commands\n\n");
+    printf("\t\t\t\t1 --> Load\n");
+    printf("\t\t\t\t2 --> Search\n");
+    printf("\t\t\t\t3 --> Add\n");
+    printf("\t\t\t\t4 --> Delete\n");
+    printf("\t\t\t\t5 --> Modify\n");
+    printf("\t\t\t\t6 --> Sort\n");
+    printf("\t\t\t\t7 --> Save\n");
+    printf("\t\t\t\t8 --> Print\n");
+    printf("\t\t\t\t9 --> Quit\n\n");
+}
+//checks OS version and clears the screen
+void clearScreen(){
+    if(PLATFORM_NAME == "windows")
+        system("cls");
+    else if (PLATFORM_NAME == "linux")
+        system("clear");
 }

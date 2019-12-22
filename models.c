@@ -6,6 +6,7 @@
 #include "models.h"
 #include "validation.h"
 
+//converts string to birthday struct
 DateOfBirth *BirthdayConstructor(char* s)
 {
     DateOfBirth *birthday = (DateOfBirth*)malloc(sizeof(DateOfBirth));
@@ -27,19 +28,9 @@ DateOfBirth *BirthdayConstructor(char* s)
     }
     return birthday;
 }
-
+//reads input from user without overflow
 char* readInput(char* input, int n)
 {
-/*
-    char result[n];
-    //scanf("%s", input);
-    scanf (" %[^\n]s", input);
-    strncpy(result, input, n - 1);
-    return input;
-*/
-
-
-    //getchar();
     char buffer[1000];
     fgets(buffer, sizeof(buffer), stdin);
     for (int i = 0; i < n; i++) {
@@ -58,6 +49,7 @@ char* readInput(char* input, int n)
     return input;
 }
 
+//prints one contact
 void printContact(Contact c){
     printf("First Name = %s\n", c.firstName);
     printf("Last Name = %s\n", c.lastName);
@@ -67,6 +59,7 @@ void printContact(Contact c){
     printf("Birthday = %s - %s - %s\n", c.dateOfBirth.day,c.dateOfBirth.month,c.dateOfBirth.year);
 }
 
+//prints all contacts
 void printContacts(Contact* contacts, int length)
 {
     int i = 0;
@@ -77,6 +70,7 @@ void printContacts(Contact* contacts, int length)
     }
 }
 
+//like strstr() but case-insensitive
 char* stristr( const char* str1, const char* str2 )
 {
     const char* p1 = str1 ;

@@ -48,6 +48,7 @@ void add_new_contact()
     printf("\n");
 }
 
+//search by last name
 Contact** searchContacts(char* lastName, int* number)
 {
     Contact** contacts = (Contact**)malloc(1 *sizeof(Contact));
@@ -116,25 +117,6 @@ void delete_contact()
 
     printf("You've chosen this contact:\n");
     printContact(*selectedContact);
-
-
-
-    /*
-    for (i = 0; i < Count; i++) {
-        if (!strcasecmp(Contacts[i].firstName, firstName))
-            if (!strcasecmp(Contacts[i].lastName, lastName)) {
-                printContact(Contacts[i]);
-                flag = 1;
-                break;
-            }
-    }
-     */
-    /*
-    if (!flag) {
-        printf("No contact with these first name and last name found\n");
-        return;
-    }
-    */
 
     for(j = i; j < Count; j++)
         Contacts [j]=Contacts[j+1] ;
@@ -283,7 +265,7 @@ void sort()
         printf("Command not recognized please try again!\n\n");
     }
 }
-
+//for multi search
 Contact** enhancedSearch(Contact* targetContacts, int length, char* key, char* mode, int* num)
 {
     int i = 0;

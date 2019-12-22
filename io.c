@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 #include "io.h"
-
+//save one struct of the array of structs
 Contact saveToStruct(char* str){
     Contact res ;
     char birthday[11];
@@ -11,7 +11,7 @@ Contact saveToStruct(char* str){
     res.dateOfBirth = *BirthdayConstructor(birthday);
     return res;
 }
-
+//gets number of lines(structs) from file
 void getNumOfLines(FILE * f){
     char c;
     for (c = getc(f); c != EOF; c = getc(f)) {
@@ -28,7 +28,7 @@ void getNumOfLines(FILE * f){
 
     rewind(f);
 }
-
+//loads from file (the default is contacts.txt)
 void load(char* fileName){
     strcat(fileName,".txt");
     char str[512];
@@ -55,7 +55,7 @@ void load(char* fileName){
 
     fclose(f);
 }
-
+//saves the array to file
 void saveFile(char* fileName){
     FILE *fp = fopen(fileName,"w");
     int i;
