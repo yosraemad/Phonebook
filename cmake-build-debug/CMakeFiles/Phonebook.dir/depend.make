@@ -9,12 +9,16 @@ CMakeFiles/Phonebook.dir/main.c.obj: ../io.h
 CMakeFiles/Phonebook.dir/main.c.obj: ../main.c
 CMakeFiles/Phonebook.dir/main.c.obj: ../models.h
 CMakeFiles/Phonebook.dir/main.c.obj: ../useroptions.h
+CMakeFiles/Phonebook.dir/main.c.obj: ../validation.h
 
 CMakeFiles/Phonebook.dir/models.c.obj: ../models.c
 CMakeFiles/Phonebook.dir/models.c.obj: ../models.h
+CMakeFiles/Phonebook.dir/models.c.obj: ../validation.h
 
 CMakeFiles/Phonebook.dir/useroptions.c.obj: ../models.h
 CMakeFiles/Phonebook.dir/useroptions.c.obj: ../useroptions.c
+CMakeFiles/Phonebook.dir/useroptions.c.obj: ../validation.h
 
+CMakeFiles/Phonebook.dir/validation.c.obj: ../models.h
 CMakeFiles/Phonebook.dir/validation.c.obj: ../validation.c
 

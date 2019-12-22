@@ -10,11 +10,15 @@ CMakeFiles/Phonebook.dir/main.c.obj
  E:/clion projects/PhonebookFork/main.c
  E:/clion projects/PhonebookFork/models.h
  E:/clion projects/PhonebookFork/useroptions.h
+ E:/clion projects/PhonebookFork/validation.h
 CMakeFiles/Phonebook.dir/models.c.obj
  E:/clion projects/PhonebookFork/models.c
  E:/clion projects/PhonebookFork/models.h
+ E:/clion projects/PhonebookFork/validation.h
 CMakeFiles/Phonebook.dir/useroptions.c.obj
  E:/clion projects/PhonebookFork/models.h
  E:/clion projects/PhonebookFork/useroptions.c
+ E:/clion projects/PhonebookFork/validation.h
 CMakeFiles/Phonebook.dir/validation.c.obj
+ E:/clion projects/PhonebookFork/models.h
  E:/clion projects/PhonebookFork/validation.c
