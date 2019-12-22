@@ -12,7 +12,6 @@ Contact *Contacts ;
 void showMenu();
 
 void main() {
-    //  TODO BUG TO BE FIXED OF ENTERING STRING
     char fileName[30] = "contacts";
     char lastName[15];
     int flag = 1;
@@ -42,6 +41,8 @@ void main() {
                 printContacts(Contacts, Count);
                 break;
             case 2:
+                //TODO To be converted into two methods search and multisearch - and search will contain this commented code
+                /*
                 printf("Please enter the contact's last name: \n");
                 strcpy(lastName, readInput(lastName, sizeof(lastName)));
                 strcpy(lastName, v_name(lastName));
@@ -49,6 +50,9 @@ void main() {
 
                 int num = 0;
                 searchContacts(lastName, &num);
+                 */
+                multiSearch();
+
                 break;
             case 3:
                 add_new_contact();
