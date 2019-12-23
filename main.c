@@ -17,8 +17,6 @@ Contact *Contacts ;
 void showMenu();
 void clearScreen();
 
-//TODO write comments
-
 void main() {
     char fileName[30] = "contacts";
     char lastName[15];
@@ -73,8 +71,9 @@ void main() {
                         default:
                             printf("Command not recognized please renter the operation:\n");
                             scanf(" %c", &c);
+                            fflush(stdin);
                             flag = 1;
-                            break;
+                            continue;
                     }
                     break;
                     case 3:
@@ -146,8 +145,8 @@ void showMenu() {
 }
 //checks OS version and clears the screen
 void clearScreen(){
-    if(PLATFORM_NAME == "windows")
+    if(strcmp(PLATFORM_NAME,"windows") == 0)
         system("cls");
-    else if (PLATFORM_NAME == "linux")
+    else if (strcmp(PLATFORM_NAME,"linux") == 0)
         system("clear");
 }

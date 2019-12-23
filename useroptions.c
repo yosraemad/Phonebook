@@ -21,7 +21,7 @@ void add_new_contact()
     strcpy(name, readInput(name, sizeof(name)));
     strcpy(contact.lastName, v_name(name));
 
-    printf("Please enter the contact number ex'03-4320121':\n");
+    printf("Please enter the contact number :\n");
     strcpy(phone, readInput(phone, sizeof(phone)));
     strcpy(contact.phoneNum, v_number(phone));
 
@@ -80,6 +80,7 @@ void delete_contact()
     //printf("Please enter the first and last name of the contact ex'Ahmed Muhammed':\n");
     //scanf("%s %s", firstName, lastName);
 
+
     printf("Please enter the first name:\n");
     strcpy(firstName, readInput(firstName, sizeof(firstName)));
     strcpy(firstName, v_name(firstName));
@@ -105,24 +106,48 @@ void delete_contact()
         return;
     }
 
+    /*
+    int num;
+    Contact** contacts;
+    contacts = enhancedSearch(Contacts, Count, lastName, "l", &num);
+    if (!num) {
+        printf("No Contacts with these first and last name is found\n");
+        return;
+    }
+    contacts = enhancedSearch(*contacts, num, firstName, "f", &num);
+    if (!num) {
+        printf("No Contacts with these first and last name is found\n");
+        return;
+    }
+
+     */
+    //printContacts(*contacts, num);
     printContacts(*contacts, j);
     printf("Please enter the number of the contact you wish to delete:\n");
-    scanf(" %d",&s);
+    scanf("%d",&s);
     while(s > j || s <= 0) {
         printf("Please enter a correct number:\n");
         scanf(" %d",&s);
     }
-
     Contact* selectedContact = contacts[s - 1];
+
+    for (i = 0; i < Count; i++)
+    {
+        if (&Contacts[i] == selectedContact)
+            break;
+    }
 
     printf("You've chosen this contact:\n");
     printContact(*selectedContact);
+
+
 
     for(j = i; j < Count; j++)
         Contacts [j]=Contacts[j+1] ;
 
     printf("Contact deleted successfully!\n\n");
     Count--;
+    Contacts = realloc(Contacts, sizeof(Contact) * Count);
 }
 
 void modify_contact()
@@ -152,6 +177,7 @@ void modify_contact()
         flag = 1;
         scanf(" %c", &c);
         printf("Please enter the new value:\n");
+        fflush(stdin);
         switch (c) {
             case ('L'):
                 //scanf("%14s", name);
@@ -164,7 +190,7 @@ void modify_contact()
                 strcpy(selectedContact->firstName, v_name(name));
                 break;
             case ('S'):
-                //scanf("%99s", selectedContact->stName);
+
                 strcpy(selectedContact->stName, readInput(selectedContact->stName, sizeof(selectedContact->stName)));
                 strcpy(selectedContact->stName,v_address(selectedContact->stName));
                 break;

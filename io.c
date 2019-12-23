@@ -19,7 +19,6 @@ void getNumOfLines(FILE * f){
             Count++;
     }
 
-
     if(Count != 0){
         fseek(f,-1L,SEEK_CUR);
         c = getc(f);
